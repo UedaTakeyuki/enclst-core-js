@@ -1,3 +1,9 @@
 getListItems test
 
 a
+http://uedasoft.com
+https://uedasoft.com
+file://uedasoft
+/abc
+./abc
+abc/deb
