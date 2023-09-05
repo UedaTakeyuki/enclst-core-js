@@ -4,6 +4,7 @@ import * as fs from "node:fs/promises";
 
 //let file = await (async function(){return await fs.readFile('test/data/test01.enclst', { encoding: "utf8" })}())
 let file
+let resArray
 //console.log("file", file)
 
 describe('Array', function () {
@@ -14,12 +15,20 @@ describe('Array', function () {
 
     it('read file collectlly', async function(){
       file = await fs.readFile('test/data/test01.enclst', { encoding: "utf8" })
-      console.log("file", file)
+//      console.log("file", file)
     });
 
     it('stringToResArray', function(){
-      let resArray = enclstcore.stringToResArray(file)
+      resArray = enclstcore.stringToResArray(file)
       assert.equal(resArray.length, 80);
+    })
+
+    it('getTitle', function(){
+      assert.equal(enclstcore.getTitle(resArray), 'Animaux à Adopter')
+    })
+
+    it('getListItems', function(){
+      let items = enclstcore.getListItems(resArray)
     })
 
   });
