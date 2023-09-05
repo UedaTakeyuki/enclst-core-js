@@ -2,8 +2,6 @@ export default {
   /**
    * Create Result Array, an array by dividing a string with line feed codes.
    * 
-   * @param {*} str 
-   * @returns Result Array
    */
   stringToResArray(str){
     let resArray = []
@@ -17,8 +15,6 @@ export default {
   /**
    * get title of an Enclst from Resut Array.
    * 
-   * @param {*} resArray 
-   * @returns 
    */
   getTitle(resArray){
     // return "" if no title
@@ -35,8 +31,6 @@ export default {
   /**
    * get list items of an Enclist from Result Array.
    * 
-   * @param {*} resArray 
-   * @returns 
    */
   getListItems(resArray){
     // return "" if blank array
