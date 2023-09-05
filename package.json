@@ -1,8 +1,8 @@
 {
   "name": "enclst-core-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "enclst core library for javascript",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
     "index.js"
   ],
