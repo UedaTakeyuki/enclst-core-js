@@ -1,5 +1,5 @@
 var assert = require('assert');
-import enclstcore from '../index.js'
+import enclstcore from '../src/index.js'
 import * as fs from "node:fs/promises";
 
 //let file = await (async function(){return await fs.readFile('test/data/test01.enclst', { encoding: "utf8" })}())
@@ -29,6 +29,7 @@ describe('Array', function () {
 
     it('getListItems', function(){
       let items = enclstcore.getListItems(resArray)
+      console.log("items[0]", items[0])
     })
 
   });

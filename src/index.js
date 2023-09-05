@@ -1,3 +1,15 @@
+function isPath(s){
+  if (s.substring(0,6) == "http://" || s.substring(0,7) == "https://" || s.substring(0,6) == "file://"){
+    return true
+  } else if (s.substring(0,1) == "./" || s.substring(0,0) == "/") {
+    return true
+  } else if (s.indexOf('/') != -1){
+    return true
+  } else {
+    return false
+  }
+}
+
 export default {
   /**
    * Create Result Array, an array by dividing a string with line feed codes.
@@ -8,7 +20,7 @@ export default {
     if (str){
       resArray = str.split(/\r\n|\n/)
     }
-    console.log("resArray", resArray)
+//    console.log("resArray", resArray)
     return resArray
   },
 
@@ -43,13 +55,13 @@ export default {
       // delete the last element
       resArray.pop()
     }
-    console.log("resArray", resArray)
+//    console.log("resArray", resArray)
 
     // remove title low
     if (resArray.length >= 2 && resArray[1] == ""){
       resArray.splice(0, 2) 
     }
-    console.log("resArray", resArray)
+//    console.log("resArray", resArray)
 
     // set after the 3rd low to the items
     // const items = resArray.splice(2, resArray.length -2)
@@ -57,13 +69,31 @@ export default {
 
     // separate item to url and title and set to this.items
     for (const item of resArray){
-      console.log("item", item)
       const a = item.split('|')
-      console.log("a", a)
-      items.push({"url": a[0].trim(), "title": a[1].trim()})
+
+      switch(a.length){
+        case 1:
+          if (isPath(a[0])){
+            items.push({"path": a[0].trim()})
+          } else {
+            items.push({"attr": a[0].trim()})
+          }
+          break
+        case 2:
+          if (isPath(a[0])){
+            items.push({"path": a[0].trim(), "title": a[1].trim()})
+          } else {
+            items.push({"attr": a[0].trim(), "title": a[1].trim()})
+          }
+          break
+        case 3:
+          items.push({"attr": a[0].trim(), "path": a[2].trim(), "title": a[2].trim()})
+        default:
+          items.push({"attr": a.shift().trim(), "path": a.shift().trim().trim(), "title": a.join().trim()})
+      }
     }
     
-    console.log("items",items)
+//    console.log("items",items)
     return items
   }
 }
