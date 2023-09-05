@@ -3,6 +3,6 @@ module.exports = {
   testMatch: [
       "**/test/**/*.test.js"
   ],
-//  verbose: true,
-//  silent: false,
+  verbose: true,
+  silent: false,
 };

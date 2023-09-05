@@ -134,10 +134,10 @@ describe('getListItems test', function () {
     })
 
     it('a | b | c | d | e', function(){
-      console.log("items[15]", items[15])
-      assert.equal(items[15].attr, 'a')
-      assert.equal(items[15].path, 'b')
-      assert.equal(items[15].title, 'c | d | e')
+      console.log("items[16]", items[16])
+      assert.equal(items[16].attr, 'a')
+      assert.equal(items[16].path, 'b')
+      assert.equal(items[16].title, 'c | d | e')
     })
   });
 });

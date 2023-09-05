@@ -87,9 +87,11 @@ export default {
           }
           break
         case 3:
-          items.push({"attr": a[0].trim(), "path": a[2].trim(), "title": a[2].trim()})
+          items.push({"attr": a[0].trim(), "path": a[1].trim(), "title": a[2].trim()})
+          break
         default:
-          items.push({"attr": a.shift().trim(), "path": a.shift().trim().trim(), "title": a.join().trim()})
+          items.push({"attr": a.shift().trim(), "path": a.shift().trim().trim(), "title": a.join('|').trim()})
+          break
       }
     }
     
