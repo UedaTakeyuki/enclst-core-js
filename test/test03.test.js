@@ -6,6 +6,7 @@ import * as fs from "node:fs/promises";
 let file
 let resArray
 let items
+let Counter = 0
 //console.log("file", file)
 
 describe('getListItems test', function () {
@@ -18,9 +19,60 @@ describe('getListItems test', function () {
   })
 
   test('a', function(){
-    let posAndNamed = enclstcore.parseAttr(items[0].attr)
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
     let pos = posAndNamed.positional
     let named = posAndNamed.named
     expect(pos.length).toBe(1)
+    expect(pos[0]).toBe('a')
+    expect(Object.keys(named).length).toBe(0)
   })
+
+  test('a, b', function(){
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
+    let pos = posAndNamed.positional
+    let named = posAndNamed.named
+    expect(pos.length).toBe(2)
+    expect(pos[0]).toBe('a')
+    expect(pos[1]).toBe('b')
+    expect(Object.keys(named).length).toBe(0)
+  })
+
+  test('a , b , c', function(){
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
+    let pos = posAndNamed.positional
+    let named = posAndNamed.named
+    expect(pos.length).toBe(3)
+    expect(pos[0]).toBe('a')
+    expect(pos[1]).toBe('b')
+    expect(pos[2]).toBe('c')
+    expect(Object.keys(named).length).toBe(0)
+  })
+
+  test('a=1', function(){
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
+    let pos = posAndNamed.positional
+    let named = posAndNamed.named
+    expect(pos.length).toBe(1)
+    expect(pos[0]).toBe('a')
+    expect(Object.keys(named).length).toBe(0)
+  })
+
+  test('a=1, b = c, d  =  e', function(){
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
+    let pos = posAndNamed.positional
+    let named = posAndNamed.named
+    expect(pos.length).toBe(1)
+    expect(pos[0]).toBe('a')
+    expect(Object.keys(named).length).toBe(0)
+  })
+
+  test('a, b=1, c, d=2', function(){
+    let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
+    let pos = posAndNamed.positional
+    let named = posAndNamed.named
+    expect(pos.length).toBe(1)
+    expect(pos[0]).toBe('a')
+    expect(Object.keys(named).length).toBe(0)
+  })
+
 });

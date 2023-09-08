@@ -108,13 +108,23 @@ export default {
   parseAttr(attr){
     let positional = attr.split(',')
     let named = {}
+    for (let i = 0; i < positional.length; i++){
+      positional[i] = positional[i].trim()
+      let nameAndValue = positional[i].split('=')
+      if (nameAndValue.length == 2){
+        named[nameAndValue[0].trim()] = nameAndValue[1].trim()
+      }
+    }
+    /*
     positional.forEach(function(flaction){
+      console.log("flaction",flaction)
       flaction = flaction.trim()
+      console.log("flaction",flaction)
       let nameAndValue = flaction.split('=')
       if (nameAndValue.length == 2){
         named[nameAndValue[0].trim()] = nameAndValue[1].trim()
       }
-    })
+    })*/
     return { positional: positional, named: named}
   }
 }
