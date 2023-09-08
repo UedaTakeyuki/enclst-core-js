@@ -107,16 +107,18 @@ export default {
    */
   parseAttr(attr){
     let positional = attr.split(',')
-    let named = {}
+    let positionalResult = []
+    let namedResult = {}
     for (let i = 0; i < positional.length; i++){
       positional[i] = positional[i].trim()
       let nameAndValue = positional[i].split('=')
       if (nameAndValue.length == 2){
-        // remove this positional
-        positional.splice(i,1)
 
         // set this as named 
-        named[nameAndValue[0].trim()] = nameAndValue[1].trim()
+        namedResult[nameAndValue[0].trim()] = nameAndValue[1].trim()
+      } else {
+        // push to positional
+        positionalResult.push(positional[i])
       }
     }
     /*
@@ -129,6 +131,6 @@ export default {
         named[nameAndValue[0].trim()] = nameAndValue[1].trim()
       }
     })*/
-    return { positional: positional, named: named}
+    return { positional: positionalResult, named: namedResult}
   }
 }

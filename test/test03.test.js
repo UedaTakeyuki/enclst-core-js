@@ -61,18 +61,24 @@ describe('getListItems test', function () {
     let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
     let pos = posAndNamed.positional
     let named = posAndNamed.named
-    expect(pos.length).toBe(1)
-    expect(pos[0]).toBe('a')
-    expect(Object.keys(named).length).toBe(0)
+    expect(pos.length).toBe(0)
+    expect(Object.keys(named).length).toBe(3)
+    expect(named.a).toBe('1')
+    expect(named.b).toBe('c')
+    expect(named.d).toBe('e')
+   
   })
 
   test('a, b=1, c, d=2', function(){
     let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
     let pos = posAndNamed.positional
     let named = posAndNamed.named
-    expect(pos.length).toBe(1)
+    expect(pos.length).toBe(2)
     expect(pos[0]).toBe('a')
-    expect(Object.keys(named).length).toBe(0)
+    expect(pos[1]).toBe('c')
+    expect(Object.keys(named).length).toBe(2)
+    expect(named.b).toBe('1')
+    expect(named.d).toBe('2')
   })
 
 });
