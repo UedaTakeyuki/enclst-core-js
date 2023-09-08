@@ -52,9 +52,9 @@ describe('getListItems test', function () {
     let posAndNamed = enclstcore.parseAttr(items[Counter++].attr)
     let pos = posAndNamed.positional
     let named = posAndNamed.named
-    expect(pos.length).toBe(1)
-    expect(pos[0]).toBe('a')
-    expect(Object.keys(named).length).toBe(0)
+    expect(pos.length).toBe(0)
+    expect(Object.keys(named).length).toBe(1)
+    expect(named.a).toBe('1')
   })
 
   test('a=1, b = c, d  =  e', function(){

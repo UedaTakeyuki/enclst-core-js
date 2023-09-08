@@ -112,6 +112,10 @@ export default {
       positional[i] = positional[i].trim()
       let nameAndValue = positional[i].split('=')
       if (nameAndValue.length == 2){
+        // remove this positional
+        positional.splice(i,1)
+
+        // set this as named 
         named[nameAndValue[0].trim()] = nameAndValue[1].trim()
       }
     }
