@@ -97,5 +97,24 @@ export default {
     
 //    console.log("items",items)
     return items
+  },
+
+  /**
+   * parse attr
+   * 
+   * @param {strng} attr
+   * @returns {{positional: string[], named: Object}} parse result a positional params & named params
+   */
+  parseAttr(attr){
+    let positional = attr.split(',')
+    let named = {}
+    positional.forEach(function(flaction){
+      flaction = flaction.trim()
+      let nameAndValue = flaction.split('=')
+      if (nameAndValue.length == 2){
+        named[nameAndValue[0].trim()] = nameAndValue[1].trim()
+      }
+    })
+    return { positional: positional, named: named}
   }
 }

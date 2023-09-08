@@ -1,0 +1,8 @@
+parseAttr test
+
+a
+a, b
+a , b , c
+a=1
+a=1, b = c, d  =  e
+a, b=1, c, d=2
