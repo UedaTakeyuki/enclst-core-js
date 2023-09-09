@@ -4,27 +4,35 @@
 
 *   [EncLstCore][1]
     *   [Parameters][2]
-*   [enclist-core-js][3]
-    *   [stringToResArray][4]
-        *   [Parameters][5]
-    *   [getTitle][6]
+    *   [getTitle][3]
+    *   [getListItems][4]
+*   [enclist-core-js][5]
+    *   [stringToResArray][6]
         *   [Parameters][7]
-    *   [getListItems][8]
+    *   [getTitle][8]
         *   [Parameters][9]
-    *   [parseAttr][10]
+    *   [getListItems][10]
         *   [Parameters][11]
-*   [posAndNamedTypie][12]
-    *   [Properties][13]
+    *   [parseAttr][12]
+        *   [Parameters][13]
+*   [posAndNamedTypie][14]
+    *   [Properties][15]
 
 ## EncLstCore
 
-クラスXの説明
+Core features to handle Enclist
 
 ### Parameters
 
-*   `str` &#x20;
-*   `p1` **[number][14]** パラメータ１
-*   `p2` **[number][14]** パラメータ２
+*   `str` **[string][16]** string red from Enclst file
+
+### getTitle
+
+get Title
+
+### getListItems
+
+get Title
 
 ## enclist-core-js
 
@@ -68,43 +76,45 @@ posAndNamedType
 
 Ojbect to return parsed attr string as array of positional params and name & value pair of named params.
 
-Type: [Object][15]
+Type: [Object][17]
 
 ### Properties
 
-*   `positional` **[Array][16]<[string][17]>** Array of string for positional params
-*   `named` **[Object][15]** Object of name(string) & value(string) pair of named params
+*   `positional` **[Array][18]<[string][16]>** Array of string for positional params
+*   `named` **[Object][17]** Object of name(string) & value(string) pair of named params
 
 [1]: #enclstcore
 
 [2]: #parameters
 
-[3]: #enclist-core-js
+[3]: #gettitle
 
-[4]: #stringtoresarray
+[4]: #getlistitems
 
-[5]: #parameters-1
+[5]: #enclist-core-js
 
-[6]: #gettitle
+[6]: #stringtoresarray
 
-[7]: #parameters-2
+[7]: #parameters-1
 
-[8]: #getlistitems
+[8]: #gettitle-1
 
-[9]: #parameters-3
+[9]: #parameters-2
 
-[10]: #parseattr
+[10]: #getlistitems-1
 
-[11]: #parameters-4
+[11]: #parameters-3
 
-[12]: #posandnamedtypie
+[12]: #parseattr
 
-[13]: #properties
+[13]: #parameters-4
 
-[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[14]: #posandnamedtypie
 
-[15]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[15]: #properties
 
-[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array

@@ -1,13 +1,32 @@
+import enclstcore from './index.js'
+
 /**
- * クラスXの説明
+ * Core features to handle Enclist
  */
 export class EncLstCore {
+
+//  resArray = []
+//  items =[]
+
   /**
-   * クラスXのコンストラクタの説明
-   * @param {number} p1 パラメータ１
-   * @param {number} p2 パラメータ２
+   * @param {string} str string red from Enclst file
    */
-  constructor(str){}
-  getTitle(){}
-  getListItems(){}
+  constructor(str){
+    this.resArray = enclstcore.stringToResArray(str)
+  }
+
+  /**
+   * get Title 
+   */
+  getTitle(){
+
+  }
+
+  /**
+   * get Title 
+   */
+  getListItems(){
+
+  }
+
 }
