@@ -13,20 +13,21 @@ export class EncLstCore {
    */
   constructor(str){
     this.resArray = enclstcore.stringToResArray(str)
+    this.items = enclstcore.getListItems(this.resArray)
   }
 
   /**
    * get Title 
    */
   getTitle(){
-
+    return getTitle(this.resArray)
   }
 
   /**
    * get Title 
    */
   getListItems(){
-
+    return this.items
   }
 
 }
