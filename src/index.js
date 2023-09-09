@@ -10,6 +10,9 @@ function isPath(s){
   }
 }
 
+/**
+ * @module enclist-core-js
+ */
 export default {
   /**
    * Create Result Array, an array by dividing a string with line feed codes.
