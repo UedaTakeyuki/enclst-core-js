@@ -1,10 +1,11 @@
 {
   "name": "enclst-core-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "enclst core library for javascript",
   "main": "src/index.js",
   "files": [
-    "index.js"
+    "src/index.js",
+    "src/enclstcore.js"
   ],
   "scripts": {
     "test": "jest"
