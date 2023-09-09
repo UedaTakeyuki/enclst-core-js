@@ -9,9 +9,9 @@ $ /Volumes/devtmp/MyJs/enclst-core-js/node_modules/.bin/jsdoc2md src/index.js
         * [.stringToResArray()](#module_enclist-core-js.stringToResArray)
         * [.getTitle()](#module_enclist-core-js.getTitle)
         * [.getListItems()](#module_enclist-core-js.getListItems)
-        * [.parseAttr(attr)](#module_enclist-core-js.parseAttr) ⇒ <code>posAndNamed</code>
+        * [.parseAttr(attr)](#module_enclist-core-js.parseAttr) ⇒ <code>posAndNamedType</code>
     * _inner_
-        * [~posAndNamed](#module_enclist-core-js..posAndNamed) : <code>Object</code>
+        * [~posAndNamedTypie](#module_enclist-core-js..posAndNamedTypie) : <code>Object</code>
 
 <a name="module_enclist-core-js.stringToResArray"></a>
 
@@ -33,19 +33,23 @@ get list items of an Enclist from Result Array.
 **Kind**: static method of [<code>enclist-core-js</code>](#module_enclist-core-js)  
 <a name="module_enclist-core-js.parseAttr"></a>
 
-### enclist-core-js.parseAttr(attr) ⇒ <code>posAndNamed</code>
+### enclist-core-js.parseAttr(attr) ⇒ <code>posAndNamedType</code>
 parse attr
 
 **Kind**: static method of [<code>enclist-core-js</code>](#module_enclist-core-js)  
-**Returns**: <code>posAndNamed</code> - parse result a positional params & named params  
+**Returns**: <code>posAndNamedType</code> - parse result a positional params & named params  
 
 | Param | Type |
 | --- | --- |
 | attr | <code>strng</code> | 
 
-<a name="module_enclist-core-js..posAndNamed"></a>
+<a name="module_enclist-core-js..posAndNamedTypie"></a>
 
-### enclist-core-js~posAndNamed : <code>Object</code>
+### enclist-core-js~posAndNamedTypie : <code>Object</code>
+posAndNamedType
+
+Ojbect to return parsed attr string as array of positional params and name & value pair of named params.
+
 **Kind**: inner typedef of [<code>enclist-core-js</code>](#module_enclist-core-js)  
 **Properties**
 
@@ -54,4 +58,4 @@ parse attr
 | positional | <code>Array.&lt;string&gt;</code> | Array of string for positional params |
 | named | <code>Object</code> | Object of name(string) & value(string) pair of named params |
 
-Done in 1.61s.
+Done in 2.15s.

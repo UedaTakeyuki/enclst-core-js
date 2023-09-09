@@ -103,7 +103,11 @@ export default {
   },
 
 /**
- * @typedef {Object} posAndNamed
+ * 
+ * posAndNamedType
+ * 
+ * Ojbect to return parsed attr string as array of positional params and name & value pair of named params.
+ * @typedef {Object} posAndNamedTypie
  * @property {string[]} positional Array of string for positional params
  * @property {Object} named Object of name(string) & value(string) pair of named params
  */
@@ -112,7 +116,7 @@ export default {
    * parse attr
    * 
    * @param {strng} attr
-   * @returns {posAndNamed} parse result a positional params & named params
+   * @returns {posAndNamedType} parse result a positional params & named params
    */
   parseAttr(attr){
     let positional = attr.split(',')
