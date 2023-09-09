@@ -102,11 +102,17 @@ export default {
     return items
   },
 
+/**
+ * @typedef {Object} posAndNamed
+ * @property {string[]} positional Array of string for positional params
+ * @property {Object} named Object of name(string) & value(string) pair of named params
+ */
+
   /**
    * parse attr
    * 
    * @param {strng} attr
-   * @returns {{positional: string[], named: Object}} parse result a positional params & named params
+   * @returns {posAndNamed} parse result a positional params & named params
    */
   parseAttr(attr){
     let positional = attr.split(',')
@@ -134,6 +140,7 @@ export default {
         named[nameAndValue[0].trim()] = nameAndValue[1].trim()
       }
     })*/
+
     return { positional: positionalResult, named: namedResult}
   }
 }
