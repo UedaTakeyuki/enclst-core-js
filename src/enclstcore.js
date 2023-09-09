@@ -20,7 +20,7 @@ export class EncLstCore {
    * get Title 
    */
   getTitle(){
-    return getTitle(this.resArray)
+    return enclstcore.getTitle(this.resArray)
   }
 
   /**
