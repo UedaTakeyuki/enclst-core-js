@@ -1,3 +1,6 @@
+/**
+ * Items
+ */
 export class Items {
   
 }

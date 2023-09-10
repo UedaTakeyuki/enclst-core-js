@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: enclstcore.js</title>
+    <title>JSDoc: Source: items.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: enclstcore.js</h1>
+    <h1 class="page-title">Source: items.js</h1>
 
     
 
@@ -26,45 +26,12 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import enclstcore from './index.js'
-
-/**
- * Core features to handle Enclist.
-*/
-export class EncLstCore {
-
-//  resArray = []
-//  items =[]
-
-  /**
-   * Create EncLstCore from text.
-   * 
-   * @constructor
-   * @param {string} str string red from Enclst file
-   */
-  constructor(str){
-    this.resArray = enclstcore.stringToResArray(str)
-    this.items = enclstcore.getListItems(this.resArray)
-  }
-
-  /**
-   * Get title of this Enclst.
-   * @returns {string} Title string
-   */
-  getTitle(){
-    return enclstcore.getTitle(this.resArray)
-  }
-
-  /**
-   *  Get list items of an Enclist.
-   * @returns {Items}
-   */
-  getListItems(){
-    return this.items
-  }
-
-}
-</code></pre>
+            <pre class="prettyprint source linenums"><code>/**
+ * Items
+ */
+export class Items {
+  
+}</code></pre>
         </article>
     </section>
 

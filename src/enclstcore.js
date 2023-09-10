@@ -1,12 +1,15 @@
 import enclstcore from './index.js'
 
+/**
+ * Core features to handle Enclist.
+*/
 export class EncLstCore {
 
 //  resArray = []
 //  items =[]
 
   /**
-   * Core features to handle Enclist.
+   * Create EncLstCore from text.
    * 
    * @constructor
    * @param {string} str string red from Enclst file
@@ -18,6 +21,7 @@ export class EncLstCore {
 
   /**
    * Get title of this Enclst.
+   * @returns {string} Title string
    */
   getTitle(){
     return enclstcore.getTitle(this.resArray)
@@ -25,6 +29,7 @@ export class EncLstCore {
 
   /**
    *  Get list items of an Enclist.
+   * @returns {Items}
    */
   getListItems(){
     return this.items
