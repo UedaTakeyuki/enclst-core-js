@@ -3,10 +3,10 @@ import enclstcore from './index.js'
 /**
  * Core features to handle Enclist.
 */
-export class EncLstCore {
+export class EncLst {
 
 //  resArray = []
-//  items =[]
+//  innerItems =[]
 
   /**
    * Create EncLstCore from text.
@@ -16,23 +16,23 @@ export class EncLstCore {
    */
   constructor(str){
     this.resArray = enclstcore.stringToResArray(str)
-    this.items = enclstcore.getListItems(this.resArray)
+    this.innerItems = enclstcore.getListItems(this.resArray)
   }
 
   /**
    * Get title of this Enclst.
    * @returns {string} Title string
    */
-  getTitle(){
+  title(){
     return enclstcore.getTitle(this.resArray)
   }
 
   /**
    *  Get list items of an Enclist.
-   * @returns {Items}
+   * @returns {Item[]}
    */
-  getListItems(){
-    return this.items
+  items(){
+    return this.innerItems
   }
 
 }

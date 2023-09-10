@@ -1,6 +1,0 @@
-/**
- * Items
- */
-export class Items {
-  
-}

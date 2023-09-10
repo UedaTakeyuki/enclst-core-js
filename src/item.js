@@ -1,0 +1,6 @@
+/**
+ * Item
+ */
+export class Item {
+  
+}

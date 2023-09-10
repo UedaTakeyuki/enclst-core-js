@@ -10,8 +10,8 @@ function isPath(s){
   }
 }
 
-export {EncLstCore} from './enclstcore.js'
-export {Items} from './items.js'
+export {EncLst} from './enclst.js'
+export {Item} from './item.js'
 
 /**
  * @module enclist-core-js

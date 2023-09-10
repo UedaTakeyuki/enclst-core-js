@@ -3,20 +3,18 @@ import * as el from '../src/index.js'
 import * as fs from "node:fs/promises";
 
 var assert = require('assert');
-import enclstcore from '../src/index.js'
 
 //let file = await (async function(){return await fs.readFile('test/data/test01.enclst', { encoding: "utf8" })}())
-let file
-let core
 let items
 let Counter = 0
 //console.log("file", file)
 
 describe('getListItems test', function () {
   it('read file collectlly', async function(){
-    file = await fs.readFile('test/data/test02.enclst', { encoding: "utf8" })
-    core  = new el.EncLstCore(file)
-    items = core.getListItems()
+    let str = await fs.readFile('test/data/test02.enclst', { encoding: "utf8" })
+    let enclst  = new el.EncLst(str)
+    console.log("enclst", enclst)
+    items = enclst.items()
 //      console.log("file", file)
   });
 
