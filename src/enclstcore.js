@@ -1,14 +1,14 @@
 import enclstcore from './index.js'
 
-/**
- * Core features to handle Enclist.
- */
 export class EncLstCore {
 
 //  resArray = []
 //  items =[]
 
   /**
+   * Core features to handle Enclist.
+   * 
+   * @constructor
    * @param {string} str string red from Enclst file
    */
   constructor(str){

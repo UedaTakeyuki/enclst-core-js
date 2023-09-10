@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>function isPath(s){
+  if (s.substring(0,6) == "http://" || s.substring(0,7) == "https://" || s.substring(0,6) == "file://"){
+    return true
+  } else if (s.substring(0,1) == "./" || s.substring(0,0) == "/") {
+    return true
+  } else if (s.indexOf('/') != -1){
+    return true
+  } else {
+    return false
+  }
+}
+
+export {EncLstCore} from './enclstcore.js'
+export {Items} from './items.js'
+
+/**
+ * @module enclist-core-js
+ */
+export default {
+  /**
+   * Create Result Array, an array by dividing a string with line feed codes.
+   * 
+   */
+  stringToResArray(str){
+    let resArray = []
+    if (str){
+      resArray = str.split(/\r\n|\n/)
+    }
+//    console.log("resArray", resArray)
+    return resArray
+  },
+
+  /**
+   * get title of an Enclst from Resut Array.
+   * 
+   */
+  getTitle(resArray){
+    // return "" if no title
+    if (resArray.length &lt; 2) {
+      return ""
+    } else if (resArray[1] != "") {
+      return ""
+    } else {
+      // return first elem as title
+      return resArray[0]
+    }
+  },
+
+  /**
+   * get list items of an Enclist from Result Array.
+   * 
+   */
+  getListItems(resArray){
+    // return "" if blank array
+    if (resArray.length == 0){
+      return []
+    }
+
+    // delete if last line is blank
+    if (resArray[resArray.length - 1] == ""){
+      // delete the last element
+      resArray.pop()
+    }
+//    console.log("resArray", resArray)
+
+    // remove title low
+    if (resArray.length >= 2 &amp;&amp; resArray[1] == ""){
+      resArray.splice(0, 2) 
+    }
+//    console.log("resArray", resArray)
+
+    // set after the 3rd low to the items
+    // const items = resArray.splice(2, resArray.length -2)
+    let items = []
+
+    // separate item to url and title and set to this.items
+    for (const item of resArray){
+      const a = item.split('|')
+
+      switch(a.length){
+        case 1:
+          if (isPath(a[0])){
+            items.push({"path": a[0].trim()})
+          } else {
+            items.push({"attr": a[0].trim()})
+          }
+          break
+        case 2:
+          if (isPath(a[0])){
+            items.push({"path": a[0].trim(), "title": a[1].trim()})
+          } else {
+            items.push({"attr": a[0].trim(), "title": a[1].trim()})
+          }
+          break
+        case 3:
+          items.push({"attr": a[0].trim(), "path": a[1].trim(), "title": a[2].trim()})
+          break
+        default:
+          items.push({"attr": a.shift().trim(), "path": a.shift().trim().trim(), "title": a.join('|').trim()})
+          break
+      }
+    }
+    
+//    console.log("items",items)
+    return items
+  },
+
+/**
+ * 
+ * posAndNamedType
+ * 
+ * Ojbect to return parsed attr string as array of positional params and name &amp; value pair of named params.
+ * @typedef {Object} posAndNamedTypie
+ * @property {string[]} positional Array of string for positional params
+ * @property {Object} named Object of name(string) &amp; value(string) pair of named params
+ */
+
+  /**
+   * parse attr
+   * 
+   * @param {strng} attr
+   * @returns {posAndNamedType} parse result a positional params &amp; named params
+   */
+  parseAttr(attr){
+    let positional = attr.split(',')
+    let positionalResult = []
+    let namedResult = {}
+    for (let i = 0; i &lt; positional.length; i++){
+      positional[i] = positional[i].trim()
+      let nameAndValue = positional[i].split('=')
+      if (nameAndValue.length == 2){
+
+        // set this as named 
+        namedResult[nameAndValue[0].trim()] = nameAndValue[1].trim()
+      } else {
+        // push to positional
+        positionalResult.push(positional[i])
+      }
+    }
+    /*
+    positional.forEach(function(flaction){
+      console.log("flaction",flaction)
+      flaction = flaction.trim()
+      console.log("flaction",flaction)
+      let nameAndValue = flaction.split('=')
+      if (nameAndValue.length == 2){
+        named[nameAndValue[0].trim()] = nameAndValue[1].trim()
+      }
+    })*/
+
+    return { positional: positionalResult, named: namedResult}
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-enclist-core-js.html">enclist-core-js</a></li></ul><h3>Classes</h3><ul><li><a href="EncLstCore_EncLstCore.html">EncLstCore</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Sep 10 2023 19:03:36 GMT+0900 (Japan Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

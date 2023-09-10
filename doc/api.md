@@ -2,10 +2,10 @@
 
 ### Table of Contents
 
-*   [EncLstCore][1]
+*   [constructor][1]
     *   [Parameters][2]
-    *   [getTitle][3]
-    *   [getListItems][4]
+*   [getTitle][3]
+*   [getListItems][4]
 *   [enclist-core-js][5]
     *   [stringToResArray][6]
         *   [Parameters][7]
@@ -18,7 +18,7 @@
 *   [posAndNamedTypie][14]
     *   [Properties][15]
 
-## EncLstCore
+## constructor
 
 Core features to handle Enclist.
 
@@ -26,11 +26,11 @@ Core features to handle Enclist.
 
 *   `str` **[string][16]** string red from Enclst file
 
-### getTitle
+## getTitle
 
 Get title of this Enclst.
 
-### getListItems
+## getListItems
 
 Get list items of an Enclist.
 
@@ -83,7 +83,7 @@ Type: [Object][17]
 *   `positional` **[Array][18]<[string][16]>** Array of string for positional params
 *   `named` **[Object][17]** Object of name(string) & value(string) pair of named params
 
-[1]: #enclstcore
+[1]: #constructor
 
 [2]: #parameters
 
