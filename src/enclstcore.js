@@ -1,7 +1,7 @@
 import enclstcore from './index.js'
 
 /**
- * Core features to handle Enclist
+ * Core features to handle Enclist.
  */
 export class EncLstCore {
 
@@ -17,14 +17,14 @@ export class EncLstCore {
   }
 
   /**
-   * get Title 
+   * Get title of this Enclst.
    */
   getTitle(){
     return enclstcore.getTitle(this.resArray)
   }
 
   /**
-   * get Title 
+   *  Get list items of an Enclist.
    */
   getListItems(){
     return this.items

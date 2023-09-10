@@ -20,7 +20,7 @@
 
 ## EncLstCore
 
-Core features to handle Enclist
+Core features to handle Enclist.
 
 ### Parameters
 
@@ -28,11 +28,11 @@ Core features to handle Enclist
 
 ### getTitle
 
-get Title
+Get title of this Enclst.
 
 ### getListItems
 
-get Title
+Get list items of an Enclist.
 
 ## enclist-core-js
 
