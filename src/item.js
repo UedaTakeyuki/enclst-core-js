@@ -47,19 +47,19 @@ export class Item {
         }
         break
       case 2:
-        if (isPath(a[0])){
+//        if (isPath(a[0])){
           this.attr = new Attr('')
           this.path  = a[0].trim()
           this.title = a[1].trim()
-        } else {
+/*        } else {
           this.attr  = new Attr(a[0].trim())
           this.path = ""
           this.title = a[1].trim()
-        }
+        }*/
         break
       case 3:
         this.attr  = new Attr(a[0].trim())
-        this.path  = a[0].trim()
+        this.path  = a[1].trim()
         this.title = a[2].trim()
         break
       default:
