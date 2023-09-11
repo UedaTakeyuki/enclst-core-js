@@ -1,6 +1,15 @@
 # Enclist-core-js
 This is a library for javascript to handle [Enclst]() data.
 
+# API
+
+```
+yarn makedoc
+```
+
+API documents will be created to ``docs`` folder.
+latest document is available [here](https://uedatakeyuki.github.io/enclst-core-js).
+
 # Test
 
 ```
