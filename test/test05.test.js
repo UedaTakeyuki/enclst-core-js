@@ -22,9 +22,9 @@ describe('getListItems test', function () {
     it('a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(item.attr, 'a')
-      assert.equal('path' in item, false)
-      assert.equal('title' in item, false)
+      assert.equal(item.attr().positional[0], 'a')
+      assert.equal(item.path(), "")
+      assert.equal(item.title(), "")
     })
 
     it('http://uedasoft.com', function(){
