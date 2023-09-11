@@ -117,6 +117,81 @@
 
 
 
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>positional</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">positional parameters of this Attr</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>named</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">named parameters of this Attr as name&value pair</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
 <dl class="details">
 
     
@@ -146,7 +221,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line6">line 6</a>
+        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -261,7 +336,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line64">line 64</a>
+        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -371,7 +446,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line76">line 76</a>
+        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -481,7 +556,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line52">line 52</a>
+        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -539,7 +614,7 @@
     
 
     
-    <h4 class="name" id="named"><span class="type-signature"></span>named<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="serialize"><span class="type-signature"></span>serialize<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -547,7 +622,7 @@
 
 
 <div class="description">
-    Get named params.
+    serialize to string
 </div>
 
 
@@ -591,7 +666,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line36">line 36</a>
+        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -620,227 +695,7 @@
 
         
 <div class="param-desc">
-    named params as name & value pair
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="positional"><span class="type-signature"></span>positional<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;string>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Get positional params.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line28">line 28</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    positional params
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array.&lt;string></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Get original string of this attr.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="attr.js.html">attr.js</a>, <a href="attr.js.html#line44">line 44</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    named params
+    string serialization
 </div>
 
 
@@ -885,7 +740,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 11 2023 19:15:18 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Sep 11 2023 21:00:50 GMT+0900 (Japan Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

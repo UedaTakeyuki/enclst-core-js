@@ -14,6 +14,9 @@ function isPath(s){
 
 /**
  * Item
+ * @property {Attr} attr       Attr object of this item
+ * @property {string} path     path of this item
+ * @property {string} title    title of this item
  */
 export class Item {
   //originalStr=""
@@ -34,62 +37,37 @@ export class Item {
     switch(a.length){
       case 1:
         if (isPath(a[0])){
-          this.innerAttr = new Attr('')
-          this.innerPath = a[0].trim()
-          this.innerTitle = ""
+          this.attr = new Attr('')
+          this.path = a[0].trim()
+          this.title = ""
         } else {
-          this.innerAttr = new Attr(a[0].trim())
-          this.innerPath = ""
-          this.innerTitle = ""
+          this.attr = new Attr(a[0].trim())
+          this.path = ""
+          this.title = ""
         }
         break
       case 2:
         if (isPath(a[0])){
-          this.innerAttr = new Attr('')
-          this.innerPath  = a[0].trim()
-          this.innerTitle = a[1].trim()
+          this.attr = new Attr('')
+          this.path  = a[0].trim()
+          this.title = a[1].trim()
         } else {
-          this.innerAttr  = new Attr(a[0].trim())
-          this.innerPath = ""
-          this.innerTitle = a[1].trim()
+          this.attr  = new Attr(a[0].trim())
+          this.path = ""
+          this.title = a[1].trim()
         }
         break
       case 3:
-        this.innerAttr  = new Attr(a[0].trim())
-        this.innerPath  = a[0].trim()
-        this.innerTitle = a[2].trim()
+        this.attr  = new Attr(a[0].trim())
+        this.path  = a[0].trim()
+        this.title = a[2].trim()
         break
       default:
-        this.innerAttr  = new Attr(a.shift().trim())
-        this.innerPath  = a.shift().trim()
-        this.innerTitle = a.join('|').trim()
+        this.attr  = new Attr(a.shift().trim())
+        this.path  = a.shift().trim()
+        this.title = a.join('|').trim()
         break
     }
   }
-
-  /**
-   * Get attr
-   * @returns {Attr} attr
-   */
-  attr(){
-    return this.innerAttr
-  }
-  
-  /**
-   * Get path
-   * @returns {string} path
-   */
-  path(){
-    return this.innerPath
-  }
-
-  /**
-   * Get title
-   * @returns {string} title
-   */
-  title(){
-    return this.innerTitle
-  }
-
 
 }

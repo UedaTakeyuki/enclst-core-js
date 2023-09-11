@@ -2,6 +2,8 @@ import enclstcore from './index.js'
 
 /**
  * Attr of Item
+ * @property {string[]} positional positional parameters of this Attr
+ * @property {object} named named parameters of this Attr as name&value pair
  */
 export class Attr {
   //originalStr=""
@@ -16,35 +18,16 @@ export class Attr {
    */
   constructor(str){
     this.originalStr = str
-    let posAndNamed = enclstcore.parseAttr(this.originalStr)
-    this.positional = posAndNamed.positional
-    this.named = posAndNamed.named
-  }
-
-  /**
-   * Get positional params.
-   * @returns {string[]} positional params
-   */
-  positional(){
-    return this.positional
-  }
-
-  /**
-   * Get named params.
-   * @returns {Object} named params as name & value pair
-   */
-  named(){
-    return this.named
+    if ("" == this.originalStr){
+      this.positional = []
+      this.named = {}
+    } else {
+      let posAndNamed = enclstcore.parseAttr(this.originalStr)
+      this.positional = posAndNamed.positional
+      this.named = posAndNamed.named  
+    }
   }
   
-  /**
-   * Get original string of this attr.
-   * @returns {string} named params 
-   */
-  toString(){
-    return this.originalStr
-  }
-
   /**
    * Has positional params?
    * @returns {bool} true if it has
@@ -62,7 +45,7 @@ export class Attr {
    * @returns {bool} true if it has
    */
   hasNamedParams(){
-    if (0 == this.named.keys().length){
+    if (0 == Object.keys(this.named).length){
       return false
     } else {
       return true
@@ -75,6 +58,14 @@ export class Attr {
    */
   hasParams(){
     return this.hasPositinalParams() || this.hasNamedParams()
+  }
+
+  /**
+   * serialize to string
+   * @returns {string} string serialization
+   */
+  serialize(){
+    return this.originalStr
   }
 
 }

@@ -19,60 +19,66 @@ describe('getListItems test', function () {
   });
 
   describe('1 item', function () {
-    it('a', function(){
+    test('a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(item.attr().positional[0], 'a')
-      assert.equal(item.path(), "")
-      assert.equal(item.title(), "")
+      expect(item.attr.serialize()).toEqual('a')
+      expect(item.attr.positional[0]).toEqual('a')
+      expect(item.attr.positional.length).toEqual(1)
+      expect(item.attr.hasParams()).toEqual(true)
+      expect(item.attr.hasPositinalParams()).toEqual(true)
+      expect(item.attr.hasNamedParams()).toEqual(false)  
+      expect(item.path).toEqual("")
+      expect(item.title).toEqual("")
     })
 
-    it('http://uedasoft.com', function(){
+    test('http://uedasoft.com', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'http://uedasoft.com')
-      assert.equal('title' in item, false)
+      expect(item.attr.serialize()).toEqual('')
+      expect(item.attr.hasParams()).toEqual(false)
+      expect(item.path).toEqual('http://uedasoft.com')
+      expect(item.title).toEqual("")
     })
 
     it('https://uedasoft.com', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'https://uedasoft.com')
-      assert.equal('title' in item, false)
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('https://uedasoft.com')
+      expect('title' in item).toEqual(false)
     })
     
     it('file://uedasoft', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'file://uedasoft')
-      assert.equal('title' in item, false)
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('file://uedasoft')
+      expect('title' in item).toEqual(false)
     })
 
     it('/abc', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, '/abc')
-      assert.equal('title' in item, false)
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('/abc')
+      expect('title' in item).toEqual(false)
     })
 
     it('./abc', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, './abc')
-      assert.equal('title' in item, false)
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('./abc')
+      expect('title' in item).toEqual(false)
     })
 
     it('abc/deb', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'abc/deb')
-      assert.equal('title' in item, false)
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('abc/deb')
+      expect('title' in item).toEqual(false)
     })
   });
 
@@ -80,57 +86,57 @@ describe('getListItems test', function () {
     it('a | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(item.attr, 'a')
-      assert.equal('path' in item, false)
-      assert.equal(item.title, 'a')
+      expect(item.attr).toEqual('a')
+      expect('path' in item).toEqual(false)
+      expect(item.title).toEqual('a')
     })
 
     it('http://uedasoft.com | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'http://uedasoft.com')
-      assert.equal(item.title, 'a')
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('http://uedasoft.com')
+      expect(item.title).toEqual('a')
     })
 
     it('https://uedasoft.com | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'https://uedasoft.com')
-      assert.equal(item.title, 'a')
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('https://uedasoft.com')
+      expect(item.title).toEqual('a')
     })
     
     it('file://uedasoft | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(item.path, 'file://uedasoft')
-      assert.equal(item.title, 'a')
+      expect('attr' in item).toEqual(false)
+      expect(item.path).toEqual('file://uedasoft')
+      expect(item.title).toEqual('a')
     })
 
     it('/abc | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in item, false)
-      assert.equal(items[11].path, '/abc')
-      assert.equal(items[11].title, 'a')
+      expect('attr' in item).toEqual(false)
+      expect(items[11].path).toEqual('/abc')
+      expect(items[11].title).toEqual('a')
     })
 
     it('./abc | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in items[12], false)
-      assert.equal(items[12].path, './abc')
-      assert.equal(items[12].title, 'a')
+      expect('attr' in items[12]).toEqual(false)
+      expect(items[12].path).toEqual('./abc')
+      expect(items[12].title).toEqual('a')
     })
 
     it('abc/deb | a', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal('attr' in items[13], false)
-      assert.equal(items[13].path, 'abc/deb')
-      assert.equal(items[13].title, 'a')
+      expect('attr' in items[13]).toEqual(false)
+      expect(items[13].path).toEqual('abc/deb')
+      expect(items[13].title).toEqual('a')
     })
   });
 
@@ -138,25 +144,25 @@ describe('getListItems test', function () {
     it('a | b | c', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(items[14].attr, 'a')
-      assert.equal(items[14].path, 'b')
-      assert.equal(items[14].title, 'c')
+      expect(items[14].attr).toEqual('a')
+      expect(items[14].path).toEqual('b')
+      expect(items[14].title).toEqual('c')
     })
 
     it('a | b | c | d', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(items[15].attr, 'a')
-      assert.equal(items[15].path, 'b')
-      assert.equal(items[15].title, 'c | d')
+      expect(items[15].attr).toEqual('a')
+      expect(items[15].path).toEqual('b')
+      expect(items[15].title).toEqual('c | d')
     })
 
     it('a | b | c | d | e', function(){
       let item = items[Counter++]
       console.log("item", item)
-      assert.equal(items[16].attr, 'a')
-      assert.equal(items[16].path, 'b')
-      assert.equal(items[16].title, 'c | d | e')
+      expect(items[16].attr).toEqual('a')
+      expect(items[16].path).toEqual('b')
+      expect(items[16].title).toEqual('c | d | e')
     })
   });
 });

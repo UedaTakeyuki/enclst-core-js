@@ -2,3 +2,5 @@
 2023.09.05 add test
 2023.09.08 add parseAttr
 2023.09.09 add class EncLstCore
+
+2023.09.11 oo-nized
