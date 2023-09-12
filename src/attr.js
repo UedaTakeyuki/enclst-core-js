@@ -6,7 +6,7 @@ import enclstcore from './index.js'
  * @property {object} named named parameters of this Attr as name&value pair
  */
 export class Attr {
-  //originalStr=""
+  //originalStr_=""
   //positional=[]
   //named={}
 
@@ -17,12 +17,15 @@ export class Attr {
    * @param {string} str string red from Enclst file
    */
   constructor(str){
-    this.originalStr = str
-    if ("" == this.originalStr){
+    /** @private */
+    this.originalStr_ = str
+    if ("" == this.originalStr_){
+      /** @public */
       this.positional = []
+      /** @public */
       this.named = {}
     } else {
-      let posAndNamed = enclstcore.parseAttr(this.originalStr)
+      let posAndNamed = enclstcore.parseAttr(this.originalStr_)
       this.positional = posAndNamed.positional
       this.named = posAndNamed.named  
     }
@@ -65,7 +68,7 @@ export class Attr {
    * @returns {string} string serialization
    */
   serialize(){
-    return this.originalStr
+    return this.originalStr_
   }
 
 }

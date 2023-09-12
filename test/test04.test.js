@@ -9,7 +9,7 @@ describe('getListItems test', function () {
     let str = await fs.readFile('test/data/test02.enclst', { encoding: "utf8" })
     let enclst  = new EncLst(str)
     console.log("enclst", enclst)
-    items = enclst.items()
+    items = enclst.items
 //      console.log("file", file)
   });
 

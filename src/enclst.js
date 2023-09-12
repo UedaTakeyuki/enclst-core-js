@@ -3,11 +3,14 @@ import {Item} from './item.js'
 
 /**
  * Core features to handle Enclist.
-*/
+ * @property {string} title title of this enclst
+ * @property {Item[]} items Item of this enclst 
+ */
 export class EncLst {
 
-//  resArray = []
-//  innerItems =[]
+//  resArray_ = []
+//  title
+//  items =[]
 
   /**
    * Create EncLstCore from text.
@@ -16,46 +19,38 @@ export class EncLst {
    * @param {string} str string red from Enclst file
    */
   constructor(str){
-    this.resArray = enclstcore.stringToResArray(str)
+    /** @private */
+    this.resArray_ = enclstcore.stringToResArray(str)
+
+    /** @public */
+    this.title = enclstcore.getTitle(this.resArray_)
     this.makeItems()
 //    this.innerItems = enclstcore.getListItems(this.resArray)
   }
 
   /**
-   * Get title of this Enclst.
-   * @returns {string} Title string
+   * make & set items
+   * @private 
    */
-  title(){
-    return enclstcore.getTitle(this.resArray)
-  }
-
-  /**
-   *  Get list items of an Enclist.
-   * @returns {Item[]}
-   */
-  items(){
-    return this.innerItems
-  }
-
   makeItems(){
     // return "" if blank array
-    if (this.resArray.length == 0){
+    if (this.resArray_.length == 0){
       this.innerItems = []
       return
     }
 
     // copy resArray to cut items down. 
-    let tempResArray = [...this.resArray]
+    let tempResArray = [...this.resArray_]
 
     // delete if last line is blank
-    if (this.resArray[this.resArray.length - 1] == ""){
+    if (this.resArray_[this.resArray_.length - 1] == ""){
       // delete the last element
       tempResArray.pop()
     }
 //    console.log("resArray", resArray)
 
     // remove title low
-    if (this.resArray.length >= 2 && this.resArray[1] == ""){
+    if (this.resArray_.length >= 2 && this.resArray_[1] == ""){
       tempResArray.splice(0, 2) 
     }
 //    console.log("resArray", resArray)
@@ -68,7 +63,9 @@ export class EncLst {
     for (const itemStr of tempResArray){
       items.push(new Item(itemStr))
     }
-    this.innerItems = items
+    
+    /** @public */
+    this.items = items
 
     return
   }

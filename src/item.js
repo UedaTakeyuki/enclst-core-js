@@ -31,14 +31,18 @@ export class Item {
    * @param {string} str string red from Enclst file
    */
   constructor(str){
-    this.originalStr = str
-    const a = this.originalStr.split('|')
+    /** @private */
+    this.originalStr_ = str
+    const a = this.originalStr_.split('|')
 
     switch(a.length){
       case 1:
         if (isPath(a[0])){
+          /** @public */
           this.attr = new Attr('')
+          /** @public */
           this.path = a[0].trim()
+          /** @public */
           this.title = ""
         } else {
           this.attr = new Attr(a[0].trim())
