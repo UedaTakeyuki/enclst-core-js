@@ -1,4 +1,3 @@
-var assert = require('assert');
 import enclstcore from '../src/index.js'
 import * as fs from "node:fs/promises";
 

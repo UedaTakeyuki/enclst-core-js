@@ -14,7 +14,7 @@ export {EncLst} from './enclst.js'
 export {Item} from './item.js'
 export {Attr} from './attr.js'
 
-/**
+/*
  * @module enclist-core-js
  */
 export default {
@@ -106,7 +106,7 @@ export default {
     return items
   },
 
-/**
+/*
  * 
  * posAndNamedType
  * 

@@ -4,7 +4,7 @@ import * as fs from "node:fs/promises";
 let items
 let Counter = 0
 
-describe('EncLst class test', function () {
+describe('getListItems test', function () {
   test('read file collectlly', async function(){
     let str = await fs.readFile('test/data/test02.enclst', { encoding: "utf8" })
     let enclst  = new EncLst(str)
