@@ -18,14 +18,16 @@ export class EncLst {
    * @constructor
    * @param {string} str string red from Enclst file
    */
-  constructor(str){
-    /** @private */
-    this.resArray_ = enclstcore.stringToResArray(str)
+  constructor(str=""){
+    if (str != ""){
+      /** @private */
+      this.resArray_ = enclstcore.stringToResArray(str)
 
-    /** @public */
-    this.title = enclstcore.getTitle(this.resArray_)
-    this.makeItems()
-//    this.innerItems = enclstcore.getListItems(this.resArray)
+      /** @public */
+      this.title = enclstcore.getTitle(this.resArray_)
+      this.makeItems()
+  //    this.innerItems = enclstcore.getListItems(this.resArray)
+    }
   }
 
   /**

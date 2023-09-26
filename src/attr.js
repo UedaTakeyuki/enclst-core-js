@@ -16,7 +16,7 @@ export class Attr {
    * @constructor
    * @param {string} str string red from Enclst file
    */
-  constructor(str){
+  constructor(str=""){
     /** @private */
     this.originalStr_ = str
     if ("" == this.originalStr_){
