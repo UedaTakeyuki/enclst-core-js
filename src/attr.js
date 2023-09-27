@@ -68,7 +68,17 @@ export class Attr {
    * @returns {string} string serialization
    */
   serialize(){
-    return this.originalStr_
+    //return this.originalStr_
+    let ser = ""
+    if (this.hasPositinalParams()){
+      ser = this.positional.join()
+    }
+    if (this.hasNamedParams()){
+      for (const property in this.named){
+        ser = ser + "," + property + "=" + this.named[property]
+      }
+    }
+    return ser
   }
 
 }
