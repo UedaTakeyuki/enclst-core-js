@@ -72,4 +72,24 @@ export class EncLst {
     return
   }
 
+  /**
+   * serialize to string
+   * @returns {string} string serialization
+   */
+  serialize(){
+    let ser = ""
+    if (this.title != ""){
+      ser = this.title + "\n\n"
+    }
+    if (this.items.length != 0){
+      for (const item of this.items){
+        ser = ser + item.serialize() + "\n"
+      }
+      // remove last cr
+      ser = ser.substring(0, str.length - 1);
+    }
+    return ser
+  }
+
+
 }

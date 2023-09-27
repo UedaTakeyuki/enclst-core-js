@@ -76,4 +76,13 @@ export class Item {
       }
     }
   }
+
+  /**
+   * serialize to string
+   * @returns {string} string serialization
+   */
+  serialize(){
+    let ser = this.attr.serialize() + "|" + this.path + "|" + this.title
+    return ser
+  }
 }
