@@ -35,6 +35,8 @@ export class Item {
     this.originalStr_ = str
     if (this.originalStr_ == ""){
       this.attr = new Attr()
+      this.path = ""
+      this.title = ""
     } else {
       const a = this.originalStr_.split('|')
       switch(a.length){

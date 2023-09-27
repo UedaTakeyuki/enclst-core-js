@@ -27,6 +27,9 @@ export class EncLst {
       this.title = enclstcore.getTitle(this.resArray_)
       this.makeItems()
   //    this.innerItems = enclstcore.getListItems(this.resArray)
+    } else {
+      this.title = ""
+      this.items = []
     }
   }
 
@@ -86,7 +89,7 @@ export class EncLst {
         ser = ser + item.serialize() + "\n"
       }
       // remove last cr
-      ser = ser.substring(0, str.length - 1);
+      ser = ser.substring(0, ser.length - 1);
     }
     return ser
   }

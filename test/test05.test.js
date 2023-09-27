@@ -1,8 +1,15 @@
-import {Item} from '../src/index.js'
+import {Item, EncLst} from '../src/index.js'
 
 describe('Create test', function () {
   test('create Attr of created Item', async function(){
     let item = new Item()
+    let enclst = new EncLst()
+
+    // confirm both item & enclst are blank
+    expect(item.serialize()).toEqual("||")
+    expect(enclst.serialize()).toEqual("")    
+    enclst.items.push(item)
+    expect(enclst.serialize()).toEqual("||")    
 
     // initially attr is blank
     expect(item.attr.hasParams() ).toEqual(false)
@@ -17,6 +24,7 @@ describe('Create test', function () {
     expect(item.attr.hasPositinalParams()).toEqual(true)
     expect(Object.keys(item.attr.named).length).toEqual(0)
     expect(item.attr.serialize()).toEqual("aho")
+    expect(enclst.serialize()).toEqual("aho||")
 
     // set a param to named
     item.attr.named["aho"]="1"
