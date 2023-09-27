@@ -32,5 +32,25 @@ describe('Create test', function () {
     expect(item.attr.hasNamedParams()).toEqual(true)
     expect(Object.keys(item.attr.named).length).toEqual(1)
     expect(item.attr.serialize()).toEqual("aho,aho=1")
+    expect(enclst.serialize()).toEqual("aho,aho=1||")
+
+    // push the other param to positional
+    item.attr.positional.push("baka")
+    expect(enclst.serialize()).toEqual("aho,baka,aho=1||")
+
+    // push the other param to named
+    item.attr.named["baka"]="2"
+    expect(enclst.serialize()).toEqual("aho,baka,aho=1,baka=2||")
   })
+
+  test('create EncLst', async function(){
+    let enclst = new EncLst()
+    let item1 = new Item("aho||")
+    let item2 = new Item("baka|.boke|kasu")
+    enclst.items.push(item1, item2)
+    expect(enclst.serialize()).toEqual("aho||\nbaka|.boke|kasu")
+    enclst.title = "kerokero"
+    expect(enclst.serialize()).toEqual(`kerokero\n\naho||\nbaka|.boke|kasu`)
+  })
+
 })
