@@ -95,4 +95,24 @@ export class EncLst {
   }
 
 
+  /**
+   * make new URL from Current URL and Path
+   * @returns {string} created URL
+   */
+  makeURLfromCurrentURLandPath(currentURL, path){
+    if (path.substring(0,6) == "http://"){
+      // path is full url
+      return path
+    } else if (path[0] == "/") {
+      // path is full path
+      const base_url = (new URL(currentURL)).origin
+      return base_url + path
+    } else {
+      // path is relative path
+      return (new URL(path, currentURL).toString())
+    }
+    return ""
+  }
+
+
 }

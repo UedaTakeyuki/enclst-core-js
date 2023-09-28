@@ -4,3 +4,5 @@
 2023.09.09 add class EncLstCore
 
 2023.09.11 oo-nized
+
+2023.09.28 makeURLfromCurrentURLandPath
