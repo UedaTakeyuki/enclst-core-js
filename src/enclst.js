@@ -99,7 +99,7 @@ export class EncLst {
    * make new URL from Current URL and Path
    * @returns {string} created URL
    */
-  makeURLfromCurrentURLandPath(currentURL, path){
+  static makeURLfromCurrentURLandPath(currentURL, path){
     if (path.substring(0,6) == "http://"){
       // path is full url
       return path
@@ -111,7 +111,7 @@ export class EncLst {
       // path is relative path
       return (new URL(path, currentURL).toString())
     }
-    return ""
+//    return ""
   }
 
 
