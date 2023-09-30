@@ -1,5 +1,6 @@
 import {Value} from './value.js'
 
+/*
 function isPath(s){
   if (s.substring(0,6) == "http://" || s.substring(0,7) == "https://" || s.substring(0,6) == "file://"){
     return true
@@ -11,6 +12,7 @@ function isPath(s){
     return false
   }
 }
+*/
 
 /**
  * Item

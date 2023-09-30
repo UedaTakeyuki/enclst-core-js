@@ -27,10 +27,11 @@ describe('Array', function () {
       assert.equal(enclstcore.getTitle(resArray), 'Animaux à Adopter')
     })
 
+/* getListItems is obsoleted
     it('getListItems', function(){
       let items = enclstcore.getListItems(resArray)
       console.log("items[0]", items[0])
     })
-
+*/
   });
 });
