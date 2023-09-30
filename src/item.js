@@ -1,4 +1,4 @@
-import {Attr} from './attr.js'
+import {Value} from './value.js'
 
 function isPath(s){
   if (s.substring(0,6) == "http://" || s.substring(0,7) == "https://" || s.substring(0,6) == "file://"){
@@ -14,8 +14,7 @@ function isPath(s){
 
 /**
  * Item
- * @property {Attr} attr       Attr object of this item
- * @property {string} path     path of this item
+ * @property {Value} value       Attr object of this item
  * @property {string} title    title of this item
  */
 export class Item {
@@ -34,46 +33,22 @@ export class Item {
     /** @private */
     this.originalStr_ = str
     if (this.originalStr_ == ""){
-      this.attr = new Attr()
-      this.path = ""
+      this.value = new Value()
       this.title = ""
     } else {
-      const a = this.originalStr_.split('|')
-      switch(a.length){
+      const separatedItemStr = this.originalStr_.split('|')
+      switch(separatedItemStr.length){
         case 1:
-          if (isPath(a[0])){
-            /** @public */
-            this.attr = new Attr()
-            /** @public */
-            this.path = a[0].trim()
-            /** @public */
-            this.title = ""
-          } else {
-            this.attr = new Attr(a[0].trim())
-            this.path = ""
-            this.title = ""
-          }
+          this.value = new Value(separatedItemStr[0])
+          this.title = ""
           break
         case 2:
-  //        if (isPath(a[0])){
-            this.attr = new Attr()
-            this.path  = a[0].trim()
-            this.title = a[1].trim()
-  /*        } else {
-            this.attr  = new Attr(a[0].trim())
-            this.path = ""
-            this.title = a[1].trim()
-          }*/
-          break
-        case 3:
-          this.attr  = new Attr(a[0].trim())
-          this.path  = a[1].trim()
-          this.title = a[2].trim()
+          this.value = new Value(separatedItemStr[0])
+          this.title = separatedItemStr[0].trim()
           break
         default:
-          this.attr  = new Attr(a.shift().trim())
-          this.path  = a.shift().trim()
-          this.title = a.join('|').trim()
+          this.value  = new Value(separatedItemStr.shift().trim())
+          this.title = separatedItemStr.join('|').trim()
           break
       }
     }
@@ -84,7 +59,7 @@ export class Item {
    * @returns {string} string serialization
    */
   serialize(){
-    let ser = this.attr.serialize() + "|" + this.path + "|" + this.title
+    let ser = this.value.serialize() + "|" + this.title
     return ser
   }
 }
