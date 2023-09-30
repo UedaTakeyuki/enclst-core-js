@@ -5,7 +5,7 @@ import enclstcore from './index.js'
  * @property {string[]} positional positional parameters of this Attr
  * @property {object} named named parameters of this Attr as name&value pair
  */
-export class Attr {
+export class Value {
   //originalStr_=""
   //positional=[]
   //named={}

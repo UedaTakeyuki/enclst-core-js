@@ -12,7 +12,7 @@ function isPath(s){
 
 export {EncLst} from './enclst.js'
 export {Item} from './item.js'
-export {Attr} from './attr.js'
+export {Value} from './value.js'
 
 /*
  * @module enclist-core-js

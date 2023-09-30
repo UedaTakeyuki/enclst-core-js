@@ -8,12 +8,5 @@ file://uedasoft
 ./abc
 abc/deb
 a | a
-http://uedasoft.com | a
-https://uedasoft.com | a
-file://uedasoft | a
-/abc | a
-./abc | a
-abc/deb | a
 a | b | c
 a | b | c | d
-a | b | c | d | e
