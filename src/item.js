@@ -39,12 +39,12 @@ export class Item {
       const separatedItemStr = this.originalStr_.split('|')
       switch(separatedItemStr.length){
         case 1:
-          this.value = new Value(separatedItemStr[0])
+          this.value = new Value(separatedItemStr.shift().trim())
           this.title = ""
           break
         case 2:
-          this.value = new Value(separatedItemStr[0])
-          this.title = separatedItemStr[0].trim()
+          this.value = new Value(separatedItemStr.shift().trim())
+          this.title = separatedItemStr.shift().trim()
           break
         default:
           this.value  = new Value(separatedItemStr.shift().trim())
