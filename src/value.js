@@ -64,6 +64,17 @@ export class Value {
   }
 
   /**
+   * first positional value or ""
+   */
+  first(){
+    if (this.hasPositinalParams()){
+      return this.positional[0]
+    } else {
+      return ""
+    }
+  }
+
+  /**
    * serialize to string
    * @returns {string} string serialization
    */
