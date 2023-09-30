@@ -51,6 +51,7 @@ export default {
    * get list items of an Enclist from Result Array.
    * 
    */
+  /*
   getListItems(resArray){
     // return "" if blank array
     if (resArray.length == 0){
@@ -105,7 +106,7 @@ export default {
 //    console.log("items",items)
     return items
   },
-
+*/
 /*
  * 
  * posAndNamedType
