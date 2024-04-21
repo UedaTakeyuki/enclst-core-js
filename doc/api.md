@@ -33,16 +33,16 @@
 
 ## EncLst
 
-Core features to handle Enclist.
+A table object.
 
 ### Parameters
 
-*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
+*   `str` **[string][29]** string in the [Enclst Notation][30]. (optional, default `""`)
 
 ### Properties
 
 *   `title` **[string][29]** title of this enclst
-*   `items` **[Array][30]<[Item][15]>** Item of this enclst
+*   `items` **[Array][31]<[Item][15]>** Item of this enclst
 
 ### title
 
@@ -52,17 +52,20 @@ Core features to handle Enclist.
 
 serialize to string
 
-Returns **[string][29]** string serialization
+Returns **[string][29]** serialized string of the Enclst
 
 ### makeURLfromCurrentURLandPath
 
-make new URL from Current URL and Path
+make new URL from Current URL, Path, and Base\_url as
+
+*   if path is started from "http://", just return paht
+*   if path is started from "http://", just return paht
 
 #### Parameters
 
-*   `currentURL` &#x20;
-*   `path` &#x20;
-*   `base_url` &#x20;
+*   `currentURL` **[string][29]**&#x20;
+*   `path` **[string][29]**&#x20;
+*   `base_url` **[string][29]**&#x20;
 
 Returns **[string][29]** created URL
 
@@ -121,8 +124,8 @@ Attr of Item
 
 ### Properties
 
-*   `positional` **[Array][30]<[string][29]>** positional parameters of this Attr
-*   `named` **[object][31]** named parameters of this Attr as name\&value pair
+*   `positional` **[Array][31]<[string][29]>** positional parameters of this Attr
+*   `named` **[object][32]** named parameters of this Attr as name\&value pair
 
 ### positional
 
@@ -214,6 +217,8 @@ Returns **[string][29]** string serialization
 
 [29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[30]: https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation
 
-[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[32]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
