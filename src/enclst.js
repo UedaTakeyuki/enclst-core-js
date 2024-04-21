@@ -2,8 +2,8 @@ import enclstcore from './index.js'
 import {Item} from './item.js'
 
 /**
- * Core features to handle Enclist.
- * @param {string} str string red from Enclst file
+ * A table object.
+ * @param {string} str string in the [Enclst Notation](https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation).
  * @property {string} title title of this enclst
  * @property {Item[]} items Item of this enclst 
  */
@@ -72,7 +72,7 @@ export class EncLst {
 
   /**
    * serialize to string
-   * @returns {string} string serialization
+   * @returns {string} serialized string of the Enclst
    */
   serialize(){
     let ser = ""
@@ -91,8 +91,15 @@ export class EncLst {
 
 
   /**
-   * make new URL from Current URL and Path
+   * make new URL from Current URL, Path, and Base_url as
+   * - if path is started from "http://", just return paht
+   * - if path is started from "http://", just return paht
+
+  * @param {string} currentURL 
+   * @param {string} path
+   * @param {string} base_url
    * @returns {string} created URL
+   * 
    */
   static makeURLfromCurrentURLandPath(currentURL, path, base_url){
     if (path.substring(0,6) == "http://"){
