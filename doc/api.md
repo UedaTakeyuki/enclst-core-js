@@ -2,119 +2,218 @@
 
 ### Table of Contents
 
-*   [constructor][1]
+*   [EncLst][1]
     *   [Parameters][2]
-*   [getTitle][3]
-*   [getListItems][4]
-*   [enclist-core-js][5]
-    *   [stringToResArray][6]
-        *   [Parameters][7]
-    *   [getTitle][8]
-        *   [Parameters][9]
-    *   [getListItems][10]
-        *   [Parameters][11]
-    *   [parseAttr][12]
-        *   [Parameters][13]
-*   [posAndNamedTypie][14]
-    *   [Properties][15]
+    *   [Properties][3]
+    *   [title][4]
+    *   [items][5]
+    *   [serialize][6]
+    *   [makeURLfromCurrentURLandPath][7]
+        *   [Parameters][8]
+*   [stringToResArray][9]
+    *   [Parameters][10]
+*   [getTitle][11]
+    *   [Parameters][12]
+*   [parseAttr][13]
+    *   [Parameters][14]
+*   [Item][15]
+    *   [Parameters][16]
+    *   [Properties][17]
+    *   [serialize][18]
+*   [Value][19]
+    *   [Parameters][20]
+    *   [Properties][21]
+    *   [positional][22]
+    *   [named][23]
+    *   [hasPositinalParams][24]
+    *   [hasNamedParams][25]
+    *   [hasParams][26]
+    *   [first][27]
+    *   [serialize][28]
 
-## constructor
+## EncLst
 
 Core features to handle Enclist.
 
 ### Parameters
 
-*   `str` **[string][16]** string red from Enclst file
+*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
 
-## getTitle
+### Properties
 
-Get title of this Enclst.
+*   `title` **[string][29]** title of this enclst
+*   `items` **[Array][30]<[Item][15]>** Item of this enclst
 
-## getListItems
+### title
 
-Get list items of an Enclist.
+### items
 
-## enclist-core-js
+### serialize
 
-### stringToResArray
+serialize to string
+
+Returns **[string][29]** string serialization
+
+### makeURLfromCurrentURLandPath
+
+make new URL from Current URL and Path
+
+#### Parameters
+
+*   `currentURL` &#x20;
+*   `path` &#x20;
+*   `base_url` &#x20;
+
+Returns **[string][29]** created URL
+
+## stringToResArray
 
 Create Result Array, an array by dividing a string with line feed codes.
 
-#### Parameters
+### Parameters
 
 *   `str` &#x20;
 
-### getTitle
+## getTitle
 
 get title of an Enclst from Resut Array.
 
-#### Parameters
+### Parameters
 
 *   `resArray` &#x20;
 
-### getListItems
-
-get list items of an Enclist from Result Array.
-
-#### Parameters
-
-*   `resArray` &#x20;
-
-### parseAttr
+## parseAttr
 
 parse attr
 
-#### Parameters
+### Parameters
 
 *   `attr` **strng**&#x20;
 
 Returns **posAndNamedType** parse result a positional params & named params
 
-## posAndNamedTypie
+## Item
 
-posAndNamedType
+Item
 
-Ojbect to return parsed attr string as array of positional params and name & value pair of named params.
+### Parameters
 
-Type: [Object][17]
+*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
 
 ### Properties
 
-*   `positional` **[Array][18]<[string][16]>** Array of string for positional params
-*   `named` **[Object][17]** Object of name(string) & value(string) pair of named params
+*   `value` **[Value][19]** Attr object of this item
+*   `title` **[string][29]** title of this item
 
-[1]: #constructor
+### serialize
+
+serialize to string
+
+Returns **[string][29]** string serialization
+
+## Value
+
+Attr of Item
+
+### Parameters
+
+*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
+
+### Properties
+
+*   `positional` **[Array][30]<[string][29]>** positional parameters of this Attr
+*   `named` **[object][31]** named parameters of this Attr as name\&value pair
+
+### positional
+
+### named
+
+### hasPositinalParams
+
+Has positional params?
+
+Returns **bool** true if it has
+
+### hasNamedParams
+
+Has named params?
+
+Returns **bool** true if it has
+
+### hasParams
+
+Has any params?
+
+Returns **bool** true if it has
+
+### first
+
+first positional value or ""
+
+### serialize
+
+serialize to string
+
+Returns **[string][29]** string serialization
+
+[1]: #enclst
 
 [2]: #parameters
 
-[3]: #gettitle
+[3]: #properties
 
-[4]: #getlistitems
+[4]: #title
 
-[5]: #enclist-core-js
+[5]: #items
 
-[6]: #stringtoresarray
+[6]: #serialize
 
-[7]: #parameters-1
+[7]: #makeurlfromcurrenturlandpath
 
-[8]: #gettitle-1
+[8]: #parameters-1
 
-[9]: #parameters-2
+[9]: #stringtoresarray
 
-[10]: #getlistitems-1
+[10]: #parameters-2
 
-[11]: #parameters-3
+[11]: #gettitle
 
-[12]: #parseattr
+[12]: #parameters-3
 
-[13]: #parameters-4
+[13]: #parseattr
 
-[14]: #posandnamedtypie
+[14]: #parameters-4
 
-[15]: #properties
+[15]: #item
 
-[16]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[16]: #parameters-5
 
-[17]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[17]: #properties-1
 
-[18]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[18]: #serialize-1
+
+[19]: #value
+
+[20]: #parameters-6
+
+[21]: #properties-2
+
+[22]: #positional
+
+[23]: #named
+
+[24]: #haspositinalparams
+
+[25]: #hasnamedparams
+
+[26]: #hasparams
+
+[27]: #first
+
+[28]: #serialize-2
+
+[29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

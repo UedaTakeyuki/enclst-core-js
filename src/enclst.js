@@ -3,6 +3,7 @@ import {Item} from './item.js'
 
 /**
  * Core features to handle Enclist.
+ * @param {string} str string red from Enclst file
  * @property {string} title title of this enclst
  * @property {Item[]} items Item of this enclst 
  */
@@ -12,12 +13,6 @@ export class EncLst {
 //  title
 //  items =[]
 
-  /**
-   * Create EncLstCore from text.
-   * 
-   * @constructor
-   * @param {string} str string red from Enclst file
-   */
   constructor(str=""){
     if (str != ""){
       /** @private */

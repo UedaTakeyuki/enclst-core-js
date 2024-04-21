@@ -47,66 +47,6 @@ export default {
     }
   },
 
-  /**
-   * get list items of an Enclist from Result Array.
-   * 
-   */
-  /*
-  getListItems(resArray){
-    // return "" if blank array
-    if (resArray.length == 0){
-      return []
-    }
-
-    // delete if last line is blank
-    if (resArray[resArray.length - 1] == ""){
-      // delete the last element
-      resArray.pop()
-    }
-//    console.log("resArray", resArray)
-
-    // remove title low
-    if (resArray.length >= 2 && resArray[1] == ""){
-      resArray.splice(0, 2) 
-    }
-//    console.log("resArray", resArray)
-
-    // set after the 3rd low to the items
-    // const items = resArray.splice(2, resArray.length -2)
-    let items = []
-
-    // separate item to url and title and set to this.items
-    for (const item of resArray){
-      const a = item.split('|')
-
-      switch(a.length){
-        case 1:
-          if (isPath(a[0])){
-            items.push({"path": a[0].trim()})
-          } else {
-            items.push({"attr": a[0].trim()})
-          }
-          break
-        case 2:
-          if (isPath(a[0])){
-            items.push({"path": a[0].trim(), "title": a[1].trim()})
-          } else {
-            items.push({"attr": a[0].trim(), "title": a[1].trim()})
-          }
-          break
-        case 3:
-          items.push({"attr": a[0].trim(), "path": a[1].trim(), "title": a[2].trim()})
-          break
-        default:
-          items.push({"attr": a.shift().trim(), "path": a.shift().trim().trim(), "title": a.join('|').trim()})
-          break
-      }
-    }
-    
-//    console.log("items",items)
-    return items
-  },
-*/
 /*
  * 
  * posAndNamedType
@@ -129,26 +69,16 @@ export default {
     let namedResult = {}
     for (let i = 0; i < positional.length; i++){
       positional[i] = positional[i].trim()
+
+      // push to positional
+      positionalResult.push(positional[i])
+
       let nameAndValue = positional[i].split('=')
       if (nameAndValue.length == 2){
-
         // set this as named 
         namedResult[nameAndValue[0].trim()] = nameAndValue[1].trim()
-      } else {
-        // push to positional
-        positionalResult.push(positional[i])
       }
     }
-    /*
-    positional.forEach(function(flaction){
-      console.log("flaction",flaction)
-      flaction = flaction.trim()
-      console.log("flaction",flaction)
-      let nameAndValue = flaction.split('=')
-      if (nameAndValue.length == 2){
-        named[nameAndValue[0].trim()] = nameAndValue[1].trim()
-      }
-    })*/
 
     return { positional: positionalResult, named: namedResult}
   }
