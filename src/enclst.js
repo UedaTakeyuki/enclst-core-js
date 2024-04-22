@@ -3,9 +3,7 @@ import {Item} from './item.js'
 
 /**
  * A table object.
- * @param {string} str string in the [Enclst Notation](https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation).
- * @property {string} title title of this enclst
- * @property {Item[]} items Item of this enclst 
+ * @param {string} str string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>.
  */
 export class EncLst {
 
@@ -18,7 +16,12 @@ export class EncLst {
       /** @private */
       this.resArray_ = enclstcore.stringToResArray(str)
 
-      /** @public */
+      /** 
+       * title of this enclst
+       * @public
+       * @type {string}
+       * 
+       */
       this.title = enclstcore.getTitle(this.resArray_)
       this.makeItems()
   //    this.innerItems = enclstcore.getListItems(this.resArray)
@@ -64,7 +67,11 @@ export class EncLst {
       items.push(new Item(itemStr))
     }
     
-    /** @public */
+    /** 
+     * Items of this enclst 
+     * @type {Item[]}
+     * @public 
+     */
     this.items = items
 
     return
@@ -92,8 +99,10 @@ export class EncLst {
 
   /**
    * make new URL from Current URL, Path, and Base_url as
-   * - if path is started from "http://", just return paht
-   * - if path is started from "http://", just return paht
+   * <ul>
+   *   <li> if path is started from "http://", just return paht</li>
+   *   <li> if path is started from "http://", just return paht</li>
+   * </ul>
 
   * @param {string} currentURL 
    * @param {string} path
