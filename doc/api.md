@@ -4,32 +4,31 @@
 
 *   [EncLst][1]
     *   [Parameters][2]
-    *   [Properties][3]
-    *   [title][4]
-    *   [items][5]
-    *   [serialize][6]
-    *   [makeURLfromCurrentURLandPath][7]
-        *   [Parameters][8]
-*   [stringToResArray][9]
-    *   [Parameters][10]
-*   [getTitle][11]
-    *   [Parameters][12]
-*   [parseAttr][13]
-    *   [Parameters][14]
-*   [Item][15]
-    *   [Parameters][16]
-    *   [Properties][17]
-    *   [serialize][18]
-*   [Value][19]
-    *   [Parameters][20]
-    *   [Properties][21]
-    *   [positional][22]
-    *   [named][23]
-    *   [hasPositinalParams][24]
-    *   [hasNamedParams][25]
-    *   [hasParams][26]
-    *   [first][27]
-    *   [serialize][28]
+    *   [title][3]
+    *   [items][4]
+    *   [serialize][5]
+    *   [makeURLfromCurrentURLandPath][6]
+        *   [Parameters][7]
+*   [stringToResArray][8]
+    *   [Parameters][9]
+*   [getTitle][10]
+    *   [Parameters][11]
+*   [parseAttr][12]
+    *   [Parameters][13]
+*   [Item][14]
+    *   [Parameters][15]
+    *   [Properties][16]
+    *   [serialize][17]
+*   [Value][18]
+    *   [Parameters][19]
+    *   [Properties][20]
+    *   [positional][21]
+    *   [named][22]
+    *   [hasPositinalParams][23]
+    *   [hasNamedParams][24]
+    *   [hasParams][25]
+    *   [first][26]
+    *   [serialize][27]
 
 ## EncLst
 
@@ -37,37 +36,42 @@ A table object.
 
 ### Parameters
 
-*   `str` **[string][29]** string in the [Enclst Notation][30]. (optional, default `""`)
-
-### Properties
-
-*   `title` **[string][29]** title of this enclst
-*   `items` **[Array][31]<[Item][15]>** Item of this enclst
+*   `str` **[string][28]** string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>. (optional, default `""`)
 
 ### title
 
+title of this enclst
+
+Type: [string][28]
+
 ### items
+
+Items of this enclst
+
+Type: [Array][29]<[Item][14]>
 
 ### serialize
 
 serialize to string
 
-Returns **[string][29]** serialized string of the Enclst
+Returns **[string][28]** serialized string of the Enclst
 
 ### makeURLfromCurrentURLandPath
 
 make new URL from Current URL, Path, and Base\_url as
 
-*   if path is started from "http://", just return paht
-*   if path is started from "http://", just return paht
+<ul>
+  <li> if path is started from "http://", just return paht</li>
+  <li> if path is started from "http://", just return paht</li>
+</ul>
 
 #### Parameters
 
-*   `currentURL` **[string][29]**&#x20;
-*   `path` **[string][29]**&#x20;
-*   `base_url` **[string][29]**&#x20;
+*   `currentURL` **[string][28]**&#x20;
+*   `path` **[string][28]**&#x20;
+*   `base_url` **[string][28]**&#x20;
 
-Returns **[string][29]** created URL
+Returns **[string][28]** created URL
 
 ## stringToResArray
 
@@ -101,18 +105,18 @@ Item
 
 ### Parameters
 
-*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
+*   `str` **[string][28]** string red from Enclst file (optional, default `""`)
 
 ### Properties
 
-*   `value` **[Value][19]** Attr object of this item
-*   `title` **[string][29]** title of this item
+*   `value` **[Value][18]** Attr object of this item
+*   `title` **[string][28]** title of this item
 
 ### serialize
 
 serialize to string
 
-Returns **[string][29]** string serialization
+Returns **[string][28]** string serialization
 
 ## Value
 
@@ -120,12 +124,12 @@ Attr of Item
 
 ### Parameters
 
-*   `str` **[string][29]** string red from Enclst file (optional, default `""`)
+*   `str` **[string][28]** string red from Enclst file (optional, default `""`)
 
 ### Properties
 
-*   `positional` **[Array][31]<[string][29]>** positional parameters of this Attr
-*   `named` **[object][32]** named parameters of this Attr as name\&value pair
+*   `positional` **[Array][29]<[string][28]>** positional parameters of this Attr
+*   `named` **[object][30]** named parameters of this Attr as name\&value pair
 
 ### positional
 
@@ -157,68 +161,64 @@ first positional value or ""
 
 serialize to string
 
-Returns **[string][29]** string serialization
+Returns **[string][28]** string serialization
 
 [1]: #enclst
 
 [2]: #parameters
 
-[3]: #properties
+[3]: #title
 
-[4]: #title
+[4]: #items
 
-[5]: #items
+[5]: #serialize
 
-[6]: #serialize
+[6]: #makeurlfromcurrenturlandpath
 
-[7]: #makeurlfromcurrenturlandpath
+[7]: #parameters-1
 
-[8]: #parameters-1
+[8]: #stringtoresarray
 
-[9]: #stringtoresarray
+[9]: #parameters-2
 
-[10]: #parameters-2
+[10]: #gettitle
 
-[11]: #gettitle
+[11]: #parameters-3
 
-[12]: #parameters-3
+[12]: #parseattr
 
-[13]: #parseattr
+[13]: #parameters-4
 
-[14]: #parameters-4
+[14]: #item
 
-[15]: #item
+[15]: #parameters-5
 
-[16]: #parameters-5
+[16]: #properties
 
-[17]: #properties-1
+[17]: #serialize-1
 
-[18]: #serialize-1
+[18]: #value
 
-[19]: #value
+[19]: #parameters-6
 
-[20]: #parameters-6
+[20]: #properties-1
 
-[21]: #properties-2
+[21]: #positional
 
-[22]: #positional
+[22]: #named
 
-[23]: #named
+[23]: #haspositinalparams
 
-[24]: #haspositinalparams
+[24]: #hasnamedparams
 
-[25]: #hasnamedparams
+[25]: #hasparams
 
-[26]: #hasparams
+[26]: #first
 
-[27]: #first
+[27]: #serialize-2
 
-[28]: #serialize-2
+[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[30]: https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation
-
-[31]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-[32]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
