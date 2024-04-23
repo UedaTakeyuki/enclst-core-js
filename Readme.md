@@ -4,14 +4,6 @@ This is a library for javascript to handle [Enclst]() data.
 # API
 
 ```
-yarn makeapidoc
-```
-
-[here](doc/api.md)
-
-or
-
-```
 yarn makedoc
 ```
 
