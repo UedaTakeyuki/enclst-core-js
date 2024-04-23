@@ -29,3 +29,30 @@ if (res.status == 200) {
   enclst = new EncLst(data)
 }
 ```
+
+### get title
+
+#### get title of the enclst
+```
+console.log(enclst.title)
+```
+
+#### get title of an item
+```
+console.log(enclst.items[0].title)
+```
+
+### get value
+```
+const value = enclst.items[0].value
+if (value.hasParams()){
+  console.log(value.first()) // first positional parameter
+}
+if (value.hasPositinalParams()){
+  console.log(value.positional[0]) // first positional parameter
+}
+if (value.hasNamedParams()){
+  if ('aho' in value.named){
+    console.log(value.named['aho']) // named by 'aho'
+  }
+}
