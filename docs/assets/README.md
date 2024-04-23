@@ -20,7 +20,6 @@ let enclst  = new EncLst(str)
 ```
 import { EncLst} from 'enclst-core-js'
 
-// url of an enclst string
 const url = "https://github.com/UedaTakeyuki/EncLst/blob/main/examples/EncycloList/lang/en/en.enclst"
 
 let enclst = {}
