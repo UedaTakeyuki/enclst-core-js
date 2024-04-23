@@ -1,5 +1,5 @@
 # Enclist-core-js
-This is a library for javascript to handle [Enclst]() data.
+This is a library for javascript to handle [Enclst](https://github.com/UedaTakeyuki/EncLst) data.
 
 # API
 
