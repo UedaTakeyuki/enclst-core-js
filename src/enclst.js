@@ -2,7 +2,7 @@ import enclstcore from './index.js'
 import {Item} from './item.js'
 
 /**
- * A table object.
+ * An enclst object.
  * @param {string} str string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>.
  */
 export class EncLst {
@@ -17,7 +17,7 @@ export class EncLst {
       this.resArray_ = enclstcore.stringToResArray(str)
 
       /** 
-       * title of this enclst
+       * Extracted title string of this enclst
        * @public
        * @type {string}
        * 
@@ -68,7 +68,7 @@ export class EncLst {
     }
     
     /** 
-     * Items of this enclst 
+     * Decoded items of this enclst 
      * @type {Item[]}
      * @public 
      */
@@ -78,8 +78,8 @@ export class EncLst {
   }
 
   /**
-   * serialize to string
-   * @returns {string} serialized string of the Enclst
+   * Serialize this enclst object to the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string
+   * @returns {string} A serialized <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string of this enclst object.
    */
   serialize(){
     let ser = ""
@@ -98,16 +98,21 @@ export class EncLst {
 
 
   /**
-   * make new URL from Current URL, Path, and Base_url as
+   * Calculate subsequent URL from the Current URL and Next path
+
+  * @param {string} currentURL Current URL 
+   * @param {string} path Next path
+   * @param {string} base_url Base url of this path, or nil.
+   * @returns {string} created URL as follows:
    * <ul>
    *   <li> if path is started from "http://", just return paht</li>
-   *   <li> if path is started from "http://", just return paht</li>
+   *   <li> else if path is started from "/"
+   *   <ul>
+   *     <li> if base_url is not specified, return CurrentURL + path
+   *     <li> if base_url is specified, return base_url + path
+   *   </ul>
+   *   <li> else, return URL(path, currentURL)
    * </ul>
-
-  * @param {string} currentURL 
-   * @param {string} path
-   * @param {string} base_url
-   * @returns {string} created URL
    * 
    */
   static makeURLfromCurrentURLandPath(currentURL, path, base_url){

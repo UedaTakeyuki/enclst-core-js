@@ -20,9 +20,19 @@ export class Value {
     /** @private */
     this.originalStr_ = str
     if ("" == this.originalStr_){
-      /** @public */
+      /** 
+       * Extracted title string of this item<br>
+       * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
+       * @public
+       * @type {string[]}
+       */
       this.positional = []
-      /** @public */
+      /** 
+       * Extracted title string of this item<br>
+       * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
+       * @public
+       * @type {Object}
+       */
       this.named = {}
     } else {
       let posAndNamed = enclstcore.parseAttr(this.originalStr_)

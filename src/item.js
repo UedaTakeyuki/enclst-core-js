@@ -29,13 +29,23 @@ export class Item {
    * Create Attr from text.
    * 
    * @constructor
-   * @param {string} str string red from Enclst file
+   * @param {string} str item string row of the Enclst file
    */
   constructor(str = ""){
     /** @private */
     this.originalStr_ = str
     if (this.originalStr_ == ""){
+      /** 
+       * Decoded value of this item 
+       * @type {Value}
+       * @public 
+       */
       this.value = new Value()
+      /** 
+       * Extracted title string of this item
+       * @public
+       * @type {string}
+       */
       this.title = ""
     } else {
       const separatedItemStr = this.originalStr_.split('|')
