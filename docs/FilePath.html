@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: FilePath</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: FilePath</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>FilePath<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">A FilePath to the origin file.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="FilePath"><span class="type-signature"></span>new FilePath<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="mixes">Mixes In:</dt>
+
+        <dd class="mixes"><ul>
+        
+            <li><a href="ValueChecker.html">ValueChecker</a></li>
+        
+        </ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="filepath.js.html">filepath.js</a>, <a href="filepath.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="FilePath.html">FilePath</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="nextFilePath"><span class="type-signature"></span>nextFilePath<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Calculate the file path of the next Encrust file.
+
+  # Return Value
+  Return the ```URL``` string to get the Enclst file indicated by the parameter ```path```. 
+  Depending on what the parameter ```path``` is like, it is evaluated as following:
+
+  ## Full URL
+  In the case of the path is the full version of the URL string like a "https:www.a.com/b.enlist"
+  which can be used as the parameter of the HTTP Get for fetching a new enclist file,
+  this function returns the same string of the input parameter path as is. 
+  
+  ## Absolute Path
+  In the case of the path is the absolute path string start with "/" like a "/b.enlist",
+  return value is depend on the presence of an additional named parameter "v_root" indicating a virtual root. 
+
+  ### without v-root
+  Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
+  Retuned nextURL is calculated as joind of the current url and path.
+  You can optionally specify a base_url, which will be used instead of the current url.
+
+  ### with v-root 
+  Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
+  Retuned nextURL is calculated as joind of the current url and path.
+  You can optionally specify a base_url, which will be used instead of the current url.
+
+  ## Relative Path 
+  Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
+  Retuned nextURL is calculated as joind of the current url and path.
+  You can optionally specify a base_url, which will be used instead of the current url.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="filepath.js.html">filepath.js</a>, <a href="filepath.js.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EncLst.html">EncLst</a></li><li><a href="FilePath.html">FilePath</a></li><li><a href="Item.html">Item</a></li><li><a href="Value.html">Value</a></li></ul><h3>Mixins</h3><ul><li><a href="ValueChecker.html">ValueChecker</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Nov 20 2024 22:22:12 GMT+0900 (Japan Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
