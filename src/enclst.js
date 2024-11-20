@@ -141,6 +141,9 @@ export class EncLst {
     }
 //    return ""
   }
-
-
 }
+
+
+// Mixin
+import {ValueChecker} from './mixins/value_checker.js'
+Object.assign(EncLst.prototype, ValueChecker);
