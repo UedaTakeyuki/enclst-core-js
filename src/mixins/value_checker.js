@@ -1,3 +1,8 @@
+/**
+ * This provides methods used for confirming path type.
+ *
+ * @mixin
+ */
 export let ValueChecker = {
   /// Is this URL?
   isURL: function(s){
