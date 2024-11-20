@@ -10,30 +10,29 @@ export class FilePath {
   /**
   Calculate the file path of the next Encrust file.
 
-  # Return Value
-  Return the ```URL``` string to get the Enclst file indicated by the parameter ```path```. 
-  Depending on what the parameter ```path``` is like, it is evaluated as following:
+  Return the <b>URL</b> string to get the Enclst file indicated by the parameter <i>path</i>. 
+  Depending on what the parameter <i>path</i> is like, it is evaluated as following:
 
-  ## Full URL
+  <h6>Full URL</h6>
   In the case of the path is the full version of the URL string like a "https:www.a.com/b.enlist"
   which can be used as the parameter of the HTTP Get for fetching a new enclist file,
   this function returns the same string of the input parameter path as is. 
   
-  ## Absolute Path
+  <h6> Absolute Path</h6>
   In the case of the path is the absolute path string start with "/" like a "/b.enlist",
   return value is depend on the presence of an additional named parameter "v_root" indicating a virtual root. 
 
-  ### without v-root
+  <li><b>without v-root</b></li>
   Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
   Retuned nextURL is calculated as joind of the current url and path.
   You can optionally specify a base_url, which will be used instead of the current url.
 
-  ### with v-root 
+  <li><b>with v-root</b></li>
   Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
   Retuned nextURL is calculated as joind of the current url and path.
   You can optionally specify a base_url, which will be used instead of the current url.
 
-  ## Relative Path 
+  <h6> Relative Path </h6>
   Calculate subsequent URL from the current URL that storeed in the member valuable of this enclst, and a parameter path that indicate a next enclst which is loading.
   Retuned nextURL is calculated as joind of the current url and path.
   You can optionally specify a base_url, which will be used instead of the current url.
