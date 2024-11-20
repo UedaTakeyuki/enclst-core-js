@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest",
     "makeapidoc": "documentation build src/** -f md -o doc/api.md",
-    "makedoc": "jsdoc src ./docs/assets/README.md -d docs"
+    "makedoc": "jsdoc -r src ./docs/assets/README.md -d docs"
   },
   "dependencies": {},
   "keywords": [
