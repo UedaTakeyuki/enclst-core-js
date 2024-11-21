@@ -146,7 +146,7 @@ export class EncLst {
 //    return ""
   }
 
-  /// Static creator by URL string
+  /** Static creator by URL string */
   static async createFromURL(urlStr) {
     let data = ""
     const filePath = new FilePath(urlStr)

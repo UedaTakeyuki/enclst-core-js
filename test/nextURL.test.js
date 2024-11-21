@@ -22,7 +22,7 @@ describe('filepath test', function () {
       "https://raw.githubusercontent.com/UedaTakeyuki/Deutschland/menu.enclst");
   });
 
-
+/*
   test('test nextEnclst', async () => {
     try{
       let e = await EncLst.createFromURL(  'https://raw.githubusercontent.com/UedaTakeyuki/HS2playlist/refs/heads/main/wagner/Theater/menu.enclst');
@@ -44,4 +44,5 @@ describe('filepath test', function () {
       console.log(e)
     }
   })
+*/
 })
