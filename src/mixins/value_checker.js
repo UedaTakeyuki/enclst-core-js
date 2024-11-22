@@ -4,7 +4,7 @@
  * @mixin
  */
 export let ValueChecker = {
-  /// Is this URL?
+  /** Is this URL? */ 
   isURL: function(s){
     if (s.substring(0, 7) == "http://" ||
         s.substring(0, 8) == "https://" ||

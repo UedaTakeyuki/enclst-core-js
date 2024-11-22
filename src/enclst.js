@@ -6,6 +6,7 @@ import {Item} from './item.js'
  * An enclst object.
  * @param {string} str string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>.
  * @mixes ValueChecker
+ * @mixes FilePath
  */
 export class EncLst {
 
