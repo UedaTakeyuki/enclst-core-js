@@ -81,3 +81,7 @@ yarn test
 ```
 
 The test environment was set up according to this [blog](https://architecting.hateblo.jp/entry/2021/02/10/152147).
+
+# Version
+- V1: Original version
+- V2: Made interface consistent with the [dart version](https://github.com/UedaTakeyuki/enclst_core_dart).
