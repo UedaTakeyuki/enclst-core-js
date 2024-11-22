@@ -1,11 +1,9 @@
 /**
- * A FilePath to the origin file.
- * @mixes ValueChecker
+ * This provides methods for guessing what a file path is for .
+ *
+ * @mixin
  */
-export class FilePath {
-  constructor(filepath){
-    this.filepath = filepath
-  }
+export let FilePath = {
 
   /**
   Calculate the file path of the next Encrust file.
@@ -72,7 +70,3 @@ export class FilePath {
     }
   }
 }
-
-// Mixin
-import {ValueChecker} from './mixins/value_checker.js'
-Object.assign(FilePath.prototype, ValueChecker);
