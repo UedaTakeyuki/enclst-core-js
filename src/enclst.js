@@ -1,5 +1,4 @@
 import enclstcore from './index.js'
-import {FilePath} from './filepath.js'
 import {Item} from './item.js'
 //import fetch from 'cross-fetch';
 
@@ -149,19 +148,20 @@ export class EncLst {
   /** Static creator by URL string */
   static async createFromURL(urlStr) {
     let data = ""
-    const filePath = new FilePath(urlStr)
+//    const filePath = new FilePath(urlStr)
     const res = await fetch(urlStr)
     if (res.status == 200) {
       const data = await res.text();
     }
     let enclst = new EncLst(data)
-    enclst.filePath = filePath
+//    enclst.filePath = filePath
     return enclst;
   }
 
   // create successor
   async nextEnclst(path,v_root = "") {
-    nextfilepath = this.filePath.nextFilePath(path, v_root);
+//    nextfilepath = this.filePath.nextFilePath(path, v_root);
+    nextfilepath = this.nextFilePath(path, v_root);
     return await this.createFromURL(nextfilepath);
   }
 }
@@ -170,3 +170,5 @@ export class EncLst {
 // Mixin
 import {ValueChecker} from './mixins/value_checker.js'
 Object.assign(EncLst.prototype, ValueChecker);
+import {FilePath} from './mixins/filepath.js'
+Object.assign(EncLst.prototype, FilePath);
