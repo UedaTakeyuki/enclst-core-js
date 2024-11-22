@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>EncLst<span class="signature">(str)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>EncLst<span class="signature">(str, filepath)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">An enclst object.</div>
         
@@ -45,7 +45,7 @@
     
 
     
-    <h4 class="name" id="EncLst"><span class="type-signature"></span>new EncLst<span class="signature">(str)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="EncLst"><span class="type-signature"></span>new EncLst<span class="signature">(str, filepath)</span><span class="type-signature"></span></h4>
     
 
     
@@ -101,7 +101,30 @@
 
             
 
-            <td class="description last">string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>.</td>
+            <td class="description last">A string representing the encrust. In case a non-empty filepath is specified, it will be ignored.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filepath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A string representing the filepath where to read. The param str is ignored if this param is specified.</td>
         </tr>
 
     
@@ -152,7 +175,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line11">line 11</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -206,6 +229,78 @@
 
     
         <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="filepath"><span class="type-signature"></span>filepath<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Filepath where this enclst is saved.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
 
         
             
@@ -263,7 +358,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line79">line 79</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -287,7 +382,7 @@
 
 
 <div class="description">
-    Extracted title string of this enclst
+    Extracted title string of this enclst.
 </div>
 
 
@@ -335,7 +430,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line29">line 29</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -853,7 +948,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line88">line 88</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line102">line 102</a>
     </li></ul></dd>
     
 
@@ -963,7 +1058,95 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line150">line 150</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line164">line 164</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getEnclstStringFromURL"><span class="type-signature">(async, static) </span>getEnclstStringFromURL<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Get Enclst string from URL.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line177">line 177</a>
     </li></ul></dd>
     
 
@@ -1146,7 +1329,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line122">line 122</a>
+        <a href="enclst.js.html">enclst.js</a>, <a href="enclst.js.html#line136">line 136</a>
     </li></ul></dd>
     
 
@@ -1229,7 +1412,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Fri Nov 22 2024 21:11:34 GMT+0900 (Japan Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Fri Nov 22 2024 23:59:21 GMT+0900 (Japan Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

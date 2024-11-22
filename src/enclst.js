@@ -4,7 +4,8 @@ import {Item} from './item.js'
 
 /**
  * An enclst object.
- * @param {string} str string in the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a>.
+ * @param {string} str A string representing the encrust. In case a non-empty filepath is specified, it will be ignored.
+ * @param {string} filepath A string representing the filepath where to read. The param str is ignored if this param is specified.
  * @mixes ValueChecker
  * @mixes FilePath
  */
@@ -15,13 +16,26 @@ export class EncLst {
 //  items =[]
 //  filePath ={}
 
-  constructor(str=""){
+    constructor(str="", filepath=""){
+    /**
+     * Filepath where this enclst is saved.
+     * @public
+     * @type {string}
+     */
+    this.filepath = filepath
+
+    if (filepath != ""){
+      str = EncLst.getEnclstStringFromURL(filepath);
+    }
+
     if (str != ""){
+
       /** @private */
       this.resArray_ = enclstcore.stringToResArray(str)
 
+
       /** 
-       * Extracted title string of this enclst
+       * Extracted title string of this enclst.
        * @public
        * @type {string}
        * 
@@ -148,15 +162,26 @@ export class EncLst {
 
   /** Static creator by URL string */
   static async createFromURL(urlStr) {
+/*    
     let data = ""
-//    const filePath = new FilePath(urlStr)
     const res = await fetch(urlStr)
     if (res.status == 200) {
       const data = await res.text();
     }
-    let enclst = new EncLst(data)
-//    enclst.filePath = filePath
+*/
+    let enclst = new EncLst("", urlStr)
     return enclst;
+  }
+
+  /** Get Enclst string from URL.  */
+  static async getEnclstStringFromURL(urlStr) {
+    let data = ""
+    //    const filePath = new FilePath(urlStr)
+    const res = await fetch(urlStr)
+    if (res.status == 200) {
+      const data = await res.text();
+    }
+    return data
   }
 
   // create successor
