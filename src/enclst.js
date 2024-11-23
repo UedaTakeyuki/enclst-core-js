@@ -16,17 +16,13 @@ export class EncLst {
 //  items =[]
 //  filePath ={}
 
-    constructor(str="", filepath=""){
+    constructor(str=""){
     /**
      * Filepath where this enclst is saved.
      * @public
      * @type {string}
      */
-    this.filepath = filepath
-
-    if (filepath != ""){
-      str = EncLst.getEnclstStringFromURL(filepath);
-    }
+    this.filepath = ""
 
     if (str != ""){
 
@@ -162,26 +158,13 @@ export class EncLst {
 
   /** Static creator by URL string */
   static async createFromURL(urlStr) {
-/*    
     let data = ""
     const res = await fetch(urlStr)
     if (res.status == 200) {
       const data = await res.text();
     }
-*/
     let enclst = new EncLst("", urlStr)
     return enclst;
-  }
-
-  /** Get Enclst string from URL.  */
-  static async getEnclstStringFromURL(urlStr) {
-    let data = ""
-    //    const filePath = new FilePath(urlStr)
-    const res = await fetch(urlStr)
-    if (res.status == 200) {
-      const data = await res.text();
-    }
-    return data
   }
 
   // create successor
