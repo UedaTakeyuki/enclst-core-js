@@ -148,9 +148,9 @@ export class EncLst {
     let data = ""
     const res = await fetch(urlStr)
     if (res.status == 200) {
-      const data = await res.text();
+      data = await res.text();
     }
-    let enclst = new EncLst("", urlStr)
+    let enclst = new EncLst(data)
     return enclst;
   }
 
@@ -183,7 +183,7 @@ export class EncLst {
     let data = ""
     const res = await fetch(urlStr)
     if (res.status == 200) {
-      const data = await res.text();
+      data = await res.text();
     }
     this.read(data)
   }
