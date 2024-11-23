@@ -11,7 +11,7 @@ import {Item} from './item.js'
  */
 export class EncLst {
 
-//  resArray_ = []
+//  lines = []
 //  title
 //  items =[]
 //  filePath ={}
@@ -25,20 +25,7 @@ export class EncLst {
     this.filepath = ""
 
     if (str != ""){
-
-      /** @private */
-      this.resArray_ = enclstcore.stringToResArray(str)
-
-
-      /** 
-       * Extracted title string of this enclst.
-       * @public
-       * @type {string}
-       * 
-       */
-      this.title = enclstcore.getTitle(this.resArray_)
-      this.makeItems()
-  //    this.innerItems = enclstcore.getListItems(this.resArray)
+      this.read(str)
     } else {
       this.title = ""
       this.items = []
@@ -51,23 +38,23 @@ export class EncLst {
    */
   makeItems(){
     // return "" if blank array
-    if (this.resArray_.length == 0){
+    if (this.lines.length == 0){
       this.innerItems = []
       return
     }
 
     // copy resArray to cut items down. 
-    let tempResArray = [...this.resArray_]
+    let tempResArray = [...this.lines]
 
     // delete if last line is blank
-    if (this.resArray_[this.resArray_.length - 1] == ""){
+    if (this.lines[this.lines.length - 1] == ""){
       // delete the last element
       tempResArray.pop()
     }
 //    console.log("resArray", resArray)
 
     // remove title low
-    if (this.resArray_.length >= 2 && this.resArray_[1] == ""){
+    if (this.lines.length >= 2 && this.lines[1] == ""){
       tempResArray.splice(0, 2) 
     }
 //    console.log("resArray", resArray)
@@ -172,6 +159,33 @@ export class EncLst {
 //    nextfilepath = this.filePath.nextFilePath(path, v_root);
     nextfilepath = this.nextFilePath(path, v_root);
     return await this.createFromURL(nextfilepath);
+  }
+
+  /** read enclst string and refresh this */
+  read(str){
+    this.lines = enclstcore.stringToLines(str)
+    /** @private */
+    this.lines = enclstcore.stringToLines(str)
+
+
+    /** 
+     * Extracted title string of this enclst.
+     * @public
+     * @type {string}
+     * 
+     */
+    this.title = enclstcore.getTitle(this.lines)
+    this.makeItems()
+  }
+
+  async readURL(urlStr){
+    this.filepath = urlStr
+    let data = ""
+    const res = await fetch(urlStr)
+    if (res.status == 200) {
+      const data = await res.text();
+    }
+    this.read(data)
   }
 }
 

@@ -22,7 +22,7 @@ export default {
    * Create Result Array, an array by dividing a string with line feed codes.
    * 
    */
-  stringToResArray(str){
+  stringToLines(str){
     let resArray = []
     if (str){
       resArray = str.split(/\r\n|\n/)

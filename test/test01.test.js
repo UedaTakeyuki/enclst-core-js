@@ -19,7 +19,7 @@ describe('Array', function () {
     });
 
     it('stringToResArray', function(){
-      resArray = enclstcore.stringToResArray(file)
+      resArray = enclstcore.stringToLines(file)
       assert.equal(resArray.length, 80);
     })
 
