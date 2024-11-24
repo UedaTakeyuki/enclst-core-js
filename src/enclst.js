@@ -16,15 +16,17 @@ export class EncLst {
 //  items =[]
 //  filePath ={}
 
-    constructor(str=""){
+    constructor(str="", filepath=""){
     /**
      * Filepath where this enclst is saved.
      * @public
      * @type {string}
      */
-    this.filepath = ""
+    this.filepath = filepath
 
-    if (str != ""){
+    if (this.filepath != ""){
+      this.readURL(this.filepath)
+    } else if (str != ""){
       this.read(str)
     } else {
       this.title = ""
