@@ -26,6 +26,7 @@
     "@types/jest": "^29.5.4",
     "babel-jest": "^29.6.4",
     "documentation": "^14.0.2",
+    "isomorphic-fetch": "^3.0.0",
     "jest": "^29.6.4",
     "jsdoc": "^4.0.4"
   }

@@ -1,5 +1,6 @@
 //import {EncLst} from '../src/enclst.js'
 import { EncLst} from '../src/index.js'
+require('isomorphic-fetch');
 
 describe('enclst test', function () {
   test('test nextURL', () => {
@@ -28,7 +29,6 @@ describe('enclst test', function () {
         "https://raw.githubusercontent.com/UedaTakeyuki/HS2playlist/refs/heads/main/wagner/menu");
     });
   
-  /*
     test('test nextEnclst', async () => {
       try{
         let e = await EncLst.createFromURL(  'https://raw.githubusercontent.com/UedaTakeyuki/HS2playlist/refs/heads/main/wagner/Theater/menu.enclst');
@@ -50,5 +50,4 @@ describe('enclst test', function () {
         console.log(e)
       }
     })
-  */
   })
