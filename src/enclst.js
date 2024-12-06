@@ -24,18 +24,21 @@ export class EncLst {
      * @type {string}
      */
     this.filepath = filepath
+
     /**
      * Title of this enclst is saved.
      * @public
      * @type {string}
      */
     this.title = ""
+
     /**
      * Array of Item objects.
      * @public
-     * @type {Object}
+     * @type {Array.Item}
      */
     this.items = []
+
     /**
      * Value object of this enclst.
      * @public
