@@ -2,71 +2,99 @@
 
 ### Table of Contents
 
-*   [title][1]
-*   [items][2]
-*   [serialize][3]
-*   [makeURLfromCurrentURLandPath][4]
-    *   [Parameters][5]
-*   [createFromURL][6]
-    *   [Parameters][7]
-*   [stringToResArray][8]
-    *   [Parameters][9]
-*   [getTitle][10]
-    *   [Parameters][11]
-*   [parseAttr][12]
-    *   [Parameters][13]
-*   [Item][14]
-    *   [Parameters][15]
-    *   [Properties][16]
-    *   [value][17]
-    *   [title][18]
-    *   [serialize][19]
-*   [FilePath][20]
-    *   [nextFilePath][21]
-        *   [Parameters][22]
-*   [ValueChecker][23]
-    *   [isURL][24]
-        *   [Parameters][25]
-*   [Value][26]
-    *   [Parameters][27]
-    *   [Properties][28]
-    *   [positional][29]
-    *   [named][30]
-    *   [hasPositinalParams][31]
-    *   [hasNamedParams][32]
-    *   [hasParams][33]
-    *   [first][34]
-    *   [serialize][35]
+*   [EncLst][1]
+    *   [Parameters][2]
+    *   [filepath][3]
+    *   [items][4]
+    *   [serialize][5]
+    *   [read][6]
+        *   [Parameters][7]
+    *   [title][8]
+    *   [makeURLfromCurrentURLandPath][9]
+        *   [Parameters][10]
+    *   [createFromURL][11]
+        *   [Parameters][12]
+*   [stringToLines][13]
+    *   [Parameters][14]
+*   [getTitle][15]
+    *   [Parameters][16]
+*   [][17]
+    *   [Parameters][18]
+*   [Item][19]
+    *   [Parameters][20]
+    *   [Properties][21]
+    *   [value][22]
+    *   [title][23]
+    *   [serialize][24]
+*   [FilePath][25]
+    *   [nextFilePath][26]
+        *   [Parameters][27]
+*   [ValueChecker][28]
+    *   [isURL][29]
+        *   [Parameters][30]
+*   [Value][31]
+    *   [Parameters][32]
+    *   [Properties][33]
+    *   [positional][34]
+    *   [named][35]
+    *   [hasPositinalParams][36]
+    *   [hasNamedParams][37]
+    *   [hasParams][38]
+    *   [first][39]
+    *   [serialize][40]
 
-## title
+## EncLst
 
-Extracted title string of this enclst
-
-Type: [string][36]
-
-## items
-
-Decoded items of this enclst
-
-Type: [Array][37]<[Item][14]>
-
-## serialize
-
-Serialize this enclst object to the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string
-
-Returns **[string][36]** A serialized <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string of this enclst object.
-
-## makeURLfromCurrentURLandPath
-
-Calculate subsequent URL from the Current URL and Next path
+An enclst object.
 
 ### Parameters
 
-*   `currentURL` **[string][36]** Current URL
-*   `path` **[string][36]** Next path
-*   `base_url` **[string][36]** Base url of this path, or nil.
+*   `str` **[string][41]** A string representing the encrust. In case a non-empty filepath is specified, it will be ignored. (optional, default `""`)
+*   `filepath` **[string][41]** A string representing the filepath where to read. The param str is ignored if this param is specified. (optional, default `""`)
 
-Returns **[string][36]** created URL as follows:<ul>
+### filepath
+
+Filepath where this enclst is saved.
+
+Type: [string][41]
+
+### items
+
+Decoded items of this enclst
+
+Type: [Array][42]<[Item][19]>
+
+### serialize
+
+Serialize this enclst object to the <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string
+
+Returns **[string][41]** A serialized <a href="https://github.com/UedaTakeyuki/EncLst?tab=readme-ov-file#enclst-notation">Enclst Notation</a> string of this enclst object.
+
+### read
+
+read enclst string and refresh this
+
+#### Parameters
+
+*   `str` &#x20;
+
+### title
+
+Extracted title string of this enclst.
+
+Type: [string][41]
+
+### makeURLfromCurrentURLandPath
+
+Calculate subsequent URL from the Current URL and Next path
+
+#### Parameters
+
+*   `currentURL` **[string][41]** Current URL
+*   `path` **[string][41]** Next path
+*   `base_url` **[string][41]** Base url of this path, or nil.
+
+Returns **[string][41]** created URL as follows:<ul>
   <li> if path is started from "http://", just return paht</li>
   <li> else if path is started from "/"
   <ul>
@@ -76,15 +104,15 @@ Returns **[string][36]** created URL as follows:<ul>
   <li> else, return URL(path, currentURL)
 </ul>
 
-## createFromURL
+### createFromURL
 
 Static creator by URL string
 
-### Parameters
+#### Parameters
 
 *   `urlStr` &#x20;
 
-## stringToResArray
+## stringToLines
 
 Create Result Array, an array by dividing a string with line feed codes.
 
@@ -100,7 +128,7 @@ get title of an Enclst from Resut Array.
 
 *   `resArray` &#x20;
 
-## parseAttr
+##
 
 parse attr
 
@@ -116,30 +144,30 @@ Item
 
 ### Parameters
 
-*   `str` **[string][36]** item string row of the Enclst file (optional, default `""`)
+*   `str` **[string][41]** item string row of the Enclst file (optional, default `""`)
 
 ### Properties
 
-*   `value` **[Value][17]** Attr object of this item
-*   `title` **[string][36]** title of this item
+*   `value` **[Value][22]** Attr object of this item
+*   `title` **[string][41]** title of this item
 
 ### value
 
 Decoded value of this item
 
-Type: [Value][17]
+Type: [Value][22]
 
 ### title
 
 Extracted title string of this item
 
-Type: [string][36]
+Type: [string][41]
 
 ### serialize
 
 serialize to string
 
-Returns **[string][36]** string serialization
+Returns **[string][41]** string serialization
 
 ## FilePath
 
@@ -199,26 +227,26 @@ Attr of Item
 
 ### Parameters
 
-*   `str` **[string][36]** string red from Enclst file (optional, default `""`)
+*   `str` **[string][41]** string red from Enclst file (optional, default `""`)
 
 ### Properties
 
-*   `positional` **[Array][37]<[string][36]>** positional parameters of this Attr
-*   `named` **[object][38]** named parameters of this Attr as name\&value pair
+*   `positional` **[Array][42]<[string][41]>** positional parameters of this Attr
+*   `named` **[object][43]** named parameters of this Attr as name\&value pair
 
 ### positional
 
 Extracted title string of this item<br>
 For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
 
-Type: [Array][37]<[string][36]>
+Type: [Array][42]<[string][41]>
 
 ### named
 
 Extracted title string of this item<br>
 For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
 
-Type: [Object][38]
+Type: [Object][43]
 
 ### hasPositinalParams
 
@@ -246,80 +274,90 @@ first positional value or ""
 
 serialize to string
 
-Returns **[string][36]** string serialization
+Returns **[string][41]** string serialization
 
-[1]: #title
+[1]: #enclst
 
-[2]: #items
+[2]: #parameters
 
-[3]: #serialize
+[3]: #filepath
 
-[4]: #makeurlfromcurrenturlandpath
+[4]: #items
 
-[5]: #parameters
+[5]: #serialize
 
-[6]: #createfromurl
+[6]: #read
 
 [7]: #parameters-1
 
-[8]: #stringtoresarray
+[8]: #title
 
-[9]: #parameters-2
+[9]: #makeurlfromcurrenturlandpath
 
-[10]: #gettitle
+[10]: #parameters-2
 
-[11]: #parameters-3
+[11]: #createfromurl
 
-[12]: #parseattr
+[12]: #parameters-3
 
-[13]: #parameters-4
+[13]: #stringtolines
 
-[14]: #item
+[14]: #parameters-4
 
-[15]: #parameters-5
+[15]: #gettitle
 
-[16]: #properties
+[16]: #parameters-5
 
-[17]: #value
+[17]: #
 
-[18]: #title-1
+[18]: #parameters-6
 
-[19]: #serialize-1
+[19]: #item
 
-[20]: #filepath
+[20]: #parameters-7
 
-[21]: #nextfilepath
+[21]: #properties
 
-[22]: #parameters-6
+[22]: #value
 
-[23]: #valuechecker
+[23]: #title-1
 
-[24]: #isurl
+[24]: #serialize-1
 
-[25]: #parameters-7
+[25]: #filepath-1
 
-[26]: #value-1
+[26]: #nextfilepath
 
 [27]: #parameters-8
 
-[28]: #properties-1
+[28]: #valuechecker
 
-[29]: #positional
+[29]: #isurl
 
-[30]: #named
+[30]: #parameters-9
 
-[31]: #haspositinalparams
+[31]: #value-1
 
-[32]: #hasnamedparams
+[32]: #parameters-10
 
-[33]: #hasparams
+[33]: #properties-1
 
-[34]: #first
+[34]: #positional
 
-[35]: #serialize-2
+[35]: #named
 
-[36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[36]: #haspositinalparams
 
-[37]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[37]: #hasnamedparams
 
-[38]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[38]: #hasparams
+
+[39]: #first
+
+[40]: #serialize-2
+
+[41]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[42]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
