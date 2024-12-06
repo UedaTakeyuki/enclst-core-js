@@ -89,7 +89,10 @@ export class Value {
       return ""
     }
   }
-
+  
+  /**
+   * read value string if not ""
+   */
   readStr(valueStr){
     if ("" != valueStr) {
       var values = valueStr.split(',');
