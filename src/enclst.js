@@ -38,25 +38,25 @@ export class EncLst {
    * make & set items
    * @private 
    */
-  makeItems(){
+  makeItems(lines){
     // return "" if blank array
-    if (this.lines.length == 0){
-      this.innerItems = []
+    if (lines.length == 0){
+//      this.innerItems = []
       return
     }
 
     // copy resArray to cut items down. 
-    let tempResArray = [...this.lines]
+    let tempResArray = [...lines]
 
     // delete if last line is blank
-    if (this.lines[this.lines.length - 1] == ""){
+    if (lines[lines.length - 1] == ""){
       // delete the last element
       tempResArray.pop()
     }
 //    console.log("resArray", resArray)
 
     // remove title low
-    if (this.lines.length >= 2 && this.lines[1] == ""){
+    if (lines.length >= 2 && lines[1] == ""){
       tempResArray.splice(0, 2) 
     }
 //    console.log("resArray", resArray)
@@ -165,9 +165,7 @@ export class EncLst {
 
   /** read enclst string and refresh this */
   read(str){
-    this.lines = enclstcore.stringToLines(str)
-    /** @private */
-    this.lines = enclstcore.stringToLines(str)
+    let lines = enclstcore.stringToLines(str)
 
 
     /** 
@@ -176,8 +174,8 @@ export class EncLst {
      * @type {string}
      * 
      */
-    this.title = enclstcore.getTitle(this.lines)
-    this.makeItems()
+    this.title = enclstcore.getTitle(lines)
+    this.makeItems(lines)
   }
 
   async readURL(urlStr){
