@@ -1,5 +1,6 @@
 import enclstcore from './index.js'
-import {Item} from './item.js'
+import {Item} from './index.js'
+import {Value} from './index.js'
 //import fetch from 'cross-fetch';
 
 /**
@@ -23,61 +24,30 @@ export class EncLst {
      * @type {string}
      */
     this.filepath = filepath
+    /**
+     * Title of this enclst is saved.
+     * @public
+     * @type {string}
+     */
+    this.title = ""
+    /**
+     * Array of Item objects.
+     * @public
+     * @type {Object}
+     */
+    this.items = []
+    /**
+     * Value object of this enclst.
+     * @public
+     * @type {Value}
+     */
+    this.value = new Value()
 
     if (this.filepath != ""){
       this.readURL(this.filepath)
     } else if (str != ""){
       this.read(str)
-    } else {
-      this.title = ""
-      this.items = []
     }
-  }
-
-  /**
-   * make & set items
-   * @private 
-   */
-  makeItems(){
-    // return "" if blank array
-    if (this.lines.length == 0){
-      this.innerItems = []
-      return
-    }
-
-    // copy resArray to cut items down. 
-    let tempResArray = [...this.lines]
-
-    // delete if last line is blank
-    if (this.lines[this.lines.length - 1] == ""){
-      // delete the last element
-      tempResArray.pop()
-    }
-//    console.log("resArray", resArray)
-
-    // remove title low
-    if (this.lines.length >= 2 && this.lines[1] == ""){
-      tempResArray.splice(0, 2) 
-    }
-//    console.log("resArray", resArray)
-
-    // set after the 3rd low to the items
-    // const items = resArray.splice(2, resArray.length -2)
-    let items = []
-
-    // separate item to url and title and set to this.items
-    for (const itemStr of tempResArray){
-      items.push(new Item(itemStr))
-    }
-    
-    /** 
-     * Decoded items of this enclst 
-     * @type {Item[]}
-     * @public 
-     */
-    this.items = items
-
-    return
   }
 
   /**
@@ -165,10 +135,7 @@ export class EncLst {
 
   /** read enclst string and refresh this */
   read(str){
-    this.lines = enclstcore.stringToLines(str)
-    /** @private */
-    this.lines = enclstcore.stringToLines(str)
-
+    let lines = enclstcore.stringToLines(str)
 
     /** 
      * Extracted title string of this enclst.
@@ -176,8 +143,33 @@ export class EncLst {
      * @type {string}
      * 
      */
-    this.title = enclstcore.getTitle(this.lines)
-    this.makeItems()
+    this.title = enclstcore.getTitle(lines)
+//    this.makeItems(lines)
+
+     // Delete the first line, which is title.
+     lines.shift()
+
+    // find a blank line
+    while (lines.length != 0) {
+      if (lines[0] == "") {
+        // remove blank line
+        lines.shift();
+        break;
+      } else {
+        // append to value
+        this.value.readStr(lines[0]);
+        lines.shift();
+      }
+    }
+
+    // make items
+    while (lines.length != 0) {
+      var line = lines[0];
+      if (line != "") {
+        this.items.push(new Item(lines[0]))
+      }
+      lines.shift();
+    }
   }
 
   async readURL(urlStr){
