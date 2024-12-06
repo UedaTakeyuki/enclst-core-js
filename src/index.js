@@ -63,6 +63,7 @@ export default {
    * @param {strng} attr
    * @returns {posAndNamedType} parse result a positional params & named params
    */
+/*
   parseAttr(attr){
     let positional = attr.split(',')
     let positionalResult = []
@@ -82,4 +83,5 @@ export default {
 
     return { positional: positionalResult, named: namedResult}
   }
+*/
 }

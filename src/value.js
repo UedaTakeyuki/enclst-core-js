@@ -19,27 +19,33 @@ export class Value {
   constructor(str=""){
     /** @private */
     this.originalStr_ = str
+
+    /** 
+     * Extracted title string of this item<br>
+     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
+     * @public
+     * @type {string[]}
+     */
+        this.positional = []
+    /** 
+     * Extracted title string of this item<br>
+     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
+     * @public
+     * @type {Object}
+     */
+    this.named = {}
+
+    this.readStr(str)
+/*
     if ("" == this.originalStr_){
-      /** 
-       * Extracted title string of this item<br>
-       * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
-       * @public
-       * @type {string[]}
-       */
-      this.positional = []
-      /** 
-       * Extracted title string of this item<br>
-       * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
-       * @public
-       * @type {Object}
-       */
-      this.named = {}
     } else {
+      this.readStr(str)
       let posAndNamed = enclstcore.parseAttr(this.originalStr_)
       this.positional = posAndNamed.positional
       this.named = posAndNamed.named  
     }
-  }
+*/
+}
   
   /**
    * Has positional params?
@@ -82,6 +88,25 @@ export class Value {
     } else {
       return ""
     }
+  }
+
+  readStr(valueStr){
+    if ("" != valueStr) {
+      var values = valueStr.split(',');
+      for (var i = 0; i < values.length; i++) {
+        values[i] = values[i].trim();
+  
+        // push to positional
+        this.positional.push(values[i]);
+  
+        var nameAndValue = this.positional[i].split('=');
+        if (nameAndValue.length == 2) {
+          // set this as named
+          this.named[nameAndValue[0].trim()] = nameAndValue[1].trim();
+        }
+      }
+    }
+    return this
   }
 
   /**
