@@ -39,7 +39,7 @@ export class EncLst {
     this.filepath = filepath
 
     /**
-     * Title of this enclst is saved.
+     * Title of this enclst.
      * @public
      * @type {string}
      */
@@ -110,13 +110,7 @@ export class EncLst {
   read(str){
     let lines = stringToLines(str)
 
-    /** 
-     * Extracted title string of this enclst.
-     * @public
-     * @type {string}
-     * 
-     */
-    this.title = lines[0] //enclstcore.getTitle(lines)
+    this.title = lines[0]
 
     // Delete the first line, which is title.
     lines.shift()
