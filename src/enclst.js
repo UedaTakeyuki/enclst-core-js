@@ -120,12 +120,15 @@ export class EncLst {
 
   /** Static creator by URL string */
   static async createFromURL(urlStr) {
+  /*  
     let data = ""
     const res = await fetch(urlStr)
     if (res.status == 200) {
       data = await res.text();
     }
-    let enclst = new EncLst(data)
+  */
+    let enclst = new EncLst()
+    enclst.readURL(urlStr)
     return enclst;
   }
 
