@@ -82,7 +82,7 @@ export class EncLst {
     }
   */
     let enclst = new EncLst()
-    enclst.readURL(urlStr)
+    await enclst.readURL(urlStr)
     return enclst;
   }
 
@@ -103,11 +103,10 @@ export class EncLst {
      * @type {string}
      * 
      */
-    this.title = enclstcore.getTitle(lines)
-//    this.makeItems(lines)
+    this.title = lines[0] //enclstcore.getTitle(lines)
 
-     // Delete the first line, which is title.
-     lines.shift()
+    // Delete the first line, which is title.
+    lines.shift()
 
     // find a blank line
     while (lines.length != 0) {
