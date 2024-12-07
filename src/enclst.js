@@ -1,7 +1,20 @@
-import enclstcore from './index.js'
+//import enclstcore from './index.js'
 import {Item} from './index.js'
 import {Value} from './index.js'
 //import fetch from 'cross-fetch';
+
+/**
+ * Create Result Array, an array by dividing a string with line feed codes.
+ * 
+ */
+function stringToLines(str){
+  let resArray = []
+  if (str){
+    resArray = str.split(/\r\n|\n/)
+  }
+//    console.log("resArray", resArray)
+  return resArray
+}
 
 /**
  * An enclst object.
@@ -82,7 +95,7 @@ export class EncLst {
     }
   */
     let enclst = new EncLst()
-    enclst.readURL(urlStr)
+    await enclst.readURL(urlStr)
     return enclst;
   }
 
@@ -95,7 +108,7 @@ export class EncLst {
 
   /** read enclst string and refresh this */
   read(str){
-    let lines = enclstcore.stringToLines(str)
+    let lines = stringToLines(str)
 
     /** 
      * Extracted title string of this enclst.
@@ -103,11 +116,10 @@ export class EncLst {
      * @type {string}
      * 
      */
-    this.title = enclstcore.getTitle(lines)
-//    this.makeItems(lines)
+    this.title = lines[0] //enclstcore.getTitle(lines)
 
-     // Delete the first line, which is title.
-     lines.shift()
+    // Delete the first line, which is title.
+    lines.shift()
 
     // find a blank line
     while (lines.length != 0) {
