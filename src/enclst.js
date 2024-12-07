@@ -1,7 +1,20 @@
-import enclstcore from './index.js'
+//import enclstcore from './index.js'
 import {Item} from './index.js'
 import {Value} from './index.js'
 //import fetch from 'cross-fetch';
+
+/**
+ * Create Result Array, an array by dividing a string with line feed codes.
+ * 
+ */
+function stringToLines(str){
+  let resArray = []
+  if (str){
+    resArray = str.split(/\r\n|\n/)
+  }
+//    console.log("resArray", resArray)
+  return resArray
+}
 
 /**
  * An enclst object.
@@ -95,7 +108,7 @@ export class EncLst {
 
   /** read enclst string and refresh this */
   read(str){
-    let lines = enclstcore.stringToLines(str)
+    let lines = stringToLines(str)
 
     /** 
      * Extracted title string of this enclst.
