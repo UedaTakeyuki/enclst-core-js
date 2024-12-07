@@ -72,52 +72,6 @@ export class EncLst {
     return ser
   }
 
-
-  /**
-   * Calculate subsequent URL from the Current URL and Next path
-
-  * @param {string} currentURL Current URL 
-   * @param {string} path Next path
-   * @param {string} base_url Base url of this path, or nil.
-   * @returns {string} created URL as follows:
-   * <ul>
-   *   <li> if path is started from "http://", just return paht</li>
-   *   <li> else if path is started from "/"
-   *   <ul>
-   *     <li> if base_url is not specified, return CurrentURL + path
-   *     <li> if base_url is specified, return base_url + path
-   *   </ul>
-   *   <li> else, return URL(path, currentURL)
-   * </ul>
-   * 
-   */
-  static makeURLfromCurrentURLandPath(currentURL, path, base_url){
-    if (path.substring(0,6) == "http://"){
-      // path is full url
-      return path
-    } else if (path[0] == "/") {
-      console.log("base_url",base_url)
-      // path is full path
-      if (base_url == undefined) {
-        base_url = (new URL(currentURL)).origin
-        console.log("base_url",base_url)
-      }
-      console.log("base_url",base_url)
-      console.log("length",base_url.length)
-      console.log("base_url[base_url.lenght -1]",base_url[base_url.length -1])
-      if (base_url[base_url.length -1] == '/'){
-//        base_url = base_url.substring(0, base_url.length -1)
-        base_url = base_url.slice(0, -1)
-        console.log("base_url",base_url)
-      }
-      return base_url + path
-    } else {
-      // path is relative path
-      return (new URL(path, currentURL).toString())
-    }
-//    return ""
-  }
-
   /** Static creator by URL string */
   static async createFromURL(urlStr) {
   /*  
