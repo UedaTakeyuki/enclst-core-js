@@ -2,8 +2,9 @@ import {EncLst} from '../src/index.js'
 require('isomorphic-fetch');
 
 describe('EncLst Next Path', function () {
+/* makeURLfromCurrentURLandPath is removed
+
   test('makeURLfromCurrentURLandPath', function(){
-//    let enclst = new EncLst()
     expect(EncLst.makeURLfromCurrentURLandPath("http://www.uedasoft.com/hello", "http://www.kerokero.com/hello")).toEqual("http://www.kerokero.com/hello")
     expect(EncLst.makeURLfromCurrentURLandPath("https://www.uedasoft.com/hello", "https://www.kerokero.com/hello")).toEqual("https://www.kerokero.com/hello")
 
@@ -24,7 +25,7 @@ describe('EncLst Next Path', function () {
     expect(EncLst.makeURLfromCurrentURLandPath("https://www.uedasoft.com/hello/hage/chibi/debu", "/aho", "https://www.uedasoft.com/hello/hage")).toEqual("https://www.uedasoft.com/hello/hage/aho")
     expect(EncLst.makeURLfromCurrentURLandPath("https://www.uedasoft.com/hello/hage/chibi/debu", "/aho", "https://www.uedasoft.com/hello/hage/")).toEqual("https://www.uedasoft.com/hello/hage/aho")
   })
-
+*/
   test('makeURLfromCurrentURLandPath', async function(){
     let e1 =  await EncLst.createFromURL("http://www.uedasoft.com/hello")
     expect(e1.nextFilePath("http://www.kerokero.com/hello")).toEqual("http://www.kerokero.com/hello")
