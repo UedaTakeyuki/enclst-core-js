@@ -15,7 +15,7 @@ export let ValueChecker = {
     }
   },
 
-  /// Is this Path?
+  /** Is this Path? */
   isPath: function(s) {
     if (this.isURL(s)) {
       return true;
@@ -28,7 +28,7 @@ export let ValueChecker = {
     }
   },
 
-  /// Is this string for Enclst file name?
+  /** Is this string for Enclst file name? */
   isEnclst: function(s){
     if (s.endsWith('.enclst')) {
       return true;
@@ -37,7 +37,7 @@ export let ValueChecker = {
     }
   },
 
-  /// Is this youtube contents ID?
+  /** Is this youtube contents ID? */
   isYTcontentID: function(s){
     if (this.isPath(s) || this.isEnclst(s)) {
       return false;
@@ -50,7 +50,7 @@ export let ValueChecker = {
     }
   },
 
-  /// Is this youtube playlist ID?
+  /** Is this youtube playlist ID? */
   isYTplaylistID: function(s){
     if (this.isPath(s) || this.isEnclst(s)) {
       return false;
