@@ -64,9 +64,6 @@ export let FilePath = {
       // path is relative
     } else {
       // set path context for url
-      //var context = p.Context(style: p.Style.url);
-      // join current parent path (..) and filepath
-      //return (context.canonicalize(context.join(filepath ?? "", "..", path)));
       return(new URL(path, this.filepath).toString())
     }
   }
