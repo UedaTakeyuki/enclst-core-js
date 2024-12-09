@@ -44,7 +44,7 @@ export let FilePath = {
       // path is absolute
     } else if (path[0] == "/") {
       // Get origin (protocol:port//server name) from current file path.
-      console.log("this.filepath", this.filepath)
+//      console.log("this.filepath", this.filepath)
       let origin = (new URL(this.filepath)).origin;
 
       // The virtual root is specified.

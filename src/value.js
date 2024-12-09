@@ -6,9 +6,23 @@ import enclstcore from './index.js'
  * @property {object} named named parameters of this Attr as name&value pair
  */
 export class Value {
-  //originalStr_=""
-  //positional=[]
-  //named={}
+  #originalStr=""
+
+  /** 
+   * Extracted title string of this item<br>
+   * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
+   * @public
+   * @type {string[]}
+   */
+  positionalValues = []
+
+  /** 
+   * Extracted title string of this item<br>
+   * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
+   * @public
+   * @type {Object}
+   */
+  namedValues = {}
 
   /**
    * Create Attr from text.
@@ -17,34 +31,8 @@ export class Value {
    * @param {string} str string red from Enclst file
    */
   constructor(str=""){
-    /** @private */
-    this.originalStr_ = str
-
-    /** 
-     * Extracted title string of this item<br>
-     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
-     * @public
-     * @type {string[]}
-     */
-        this.positional = []
-    /** 
-     * Extracted title string of this item<br>
-     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
-     * @public
-     * @type {Object}
-     */
-    this.named = {}
-
+    this.#originalStr = str
     this.readStr(str)
-/*
-    if ("" == this.originalStr_){
-    } else {
-      this.readStr(str)
-      let posAndNamed = enclstcore.parseAttr(this.originalStr_)
-      this.positional = posAndNamed.positional
-      this.named = posAndNamed.named  
-    }
-*/
 }
   
   /**
@@ -52,7 +40,7 @@ export class Value {
    * @returns {bool} true if it has
    */
   hasPositinalParams(){
-    if (0 == this.positional.length){
+    if (0 == this.positionalValues.length){
       return false
     } else {
       return true
@@ -64,7 +52,7 @@ export class Value {
    * @returns {bool} true if it has
    */
   hasNamedParams(){
-    if (0 == Object.keys(this.named).length){
+    if (0 == Object.keys(this.namedValues).length){
       return false
     } else {
       return true
@@ -84,7 +72,7 @@ export class Value {
    */
   first(){
     if (this.hasPositinalParams()){
-      return this.positional[0]
+      return this.positionalValues[0]
     } else {
       return ""
     }
@@ -100,12 +88,12 @@ export class Value {
         values[i] = values[i].trim();
   
         // push to positional
-        this.positional.push(values[i]);
+        this.positionalValues.push(values[i]);
   
-        var nameAndValue = this.positional[i].split('=');
+        var nameAndValue = this.positionalValues[i].split('=');
         if (nameAndValue.length == 2) {
           // set this as named
-          this.named[nameAndValue[0].trim()] = nameAndValue[1].trim();
+          this.namedValues[nameAndValue[0].trim()] = nameAndValue[1].trim();
         }
       }
     }
@@ -120,14 +108,13 @@ export class Value {
     //return this.originalStr_
     let ser = ""
     if (this.hasPositinalParams()){
-      ser = this.positional.join()
+      ser = this.positionalValues.join()
     }
     if (this.hasNamedParams()){
-      for (const property in this.named){
-        ser = ser + "," + property + "=" + this.named[property]
+      for (const property in this.namedValues){
+        ser = ser + "," + property + "=" + this.namedValues[property]
       }
     }
     return ser
   }
-
 }
