@@ -12,16 +12,16 @@ describe('Create test', function () {
     expect(enclst.serialize()).toEqual("|")    
 
     // initially value is blank
-    expect(item.value.hasParams() ).toEqual(false)
+    expect(item.value.hasValues() ).toEqual(false)
     expect(item.value.serialize()).toEqual("")
 
     // push a param to positional
     item.value.positionalValues.push("aho")
-    expect(item.value.hasParams() ).toEqual(true)
-    expect(item.value.hasNamedParams()).toEqual(false)
+    expect(item.value.hasValues() ).toEqual(true)
+    expect(item.value.hasNamedValues()).toEqual(false)
     expect(item.value.positionalValues.length).toEqual(1)
     expect(item.value.positionalValues[0]).toEqual("aho")
-    expect(item.value.hasPositinalParams()).toEqual(true)
+    expect(item.value.hasPositinalValues()).toEqual(true)
     expect(Object.keys(item.value.namedValues).length).toEqual(0)
     expect(item.value.serialize()).toEqual("aho")
     expect(enclst.serialize()).toEqual("aho|")
@@ -29,7 +29,7 @@ describe('Create test', function () {
     // set a param to named
     item.value.namedValues["aho"]="1"
     expect(item.value.namedValues["aho"]).toEqual("1")
-    expect(item.value.hasNamedParams()).toEqual(true)
+    expect(item.value.hasNamedValues()).toEqual(true)
     expect(Object.keys(item.value.namedValues).length).toEqual(1)
     expect(item.value.serialize()).toEqual("aho,aho=1")
     expect(enclst.serialize()).toEqual("aho,aho=1|")
