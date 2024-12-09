@@ -6,23 +6,6 @@ import enclstcore from './index.js'
  * @property {object} named named parameters of this Attr as name&value pair
  */
 export class Value {
-  _originalStr=""
-
-  /** 
-   * Extracted title string of this item<br>
-   * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
-   * @public
-   * @type {string[]}
-   */
-  positionalValues = []
-
-  /** 
-   * Extracted title string of this item<br>
-   * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
-   * @public
-   * @type {Object}
-   */
-  namedValues = {}
 
   /**
    * Create Attr from text.
@@ -31,9 +14,28 @@ export class Value {
    * @param {string} str string red from Enclst file
    */
   constructor(str=""){
+    /** @private */
     this._originalStr = str
+
+    /** 
+     * Extracted title string of this item<br>
+     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#positional">here</a>
+     * @public
+     * @type {string[]}
+     */
+    this.positionalValues = []
+
+    /** 
+     * Extracted title string of this item<br>
+     * For more detail refer <a href="https://github.com/UedaTakeyuki/EncLst/tree/main?tab=readme-ov-file#named">here</a>
+     * @public
+     * @type {Object}
+     */
+    this.namedValues = {}
+
+    // read string
     this.readStr(str)
-}
+  }
   
   /**
    * Has positional values?
