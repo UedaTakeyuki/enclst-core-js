@@ -6,7 +6,7 @@ import enclstcore from './index.js'
  * @property {object} named named parameters of this Attr as name&value pair
  */
 export class Value {
-  #originalStr=""
+  _originalStr=""
 
   /** 
    * Extracted title string of this item<br>
@@ -31,7 +31,7 @@ export class Value {
    * @param {string} str string red from Enclst file
    */
   constructor(str=""){
-    this.#originalStr = str
+    this._originalStr = str
     this.readStr(str)
 }
   
