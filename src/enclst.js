@@ -147,6 +147,20 @@ export class EncLst {
     }
     this.read(data)
   }
+
+  /** push an item to the end. */
+  pushItem(str){
+    const item = new Item(str)
+    this.items.push(item)
+    return item
+  }
+
+  /** unshift an item to the top. */
+  unshiftItem(str){
+    const item = new Item(str)
+    this.items.unshift(item)
+    return item
+  }
 }
 
 
