@@ -97,12 +97,11 @@ export class Value {
    */
   isIn(aStr){
     if (this.hasPositinalValues()){
-      this.positionalValues.forEach(value => {
-        if (value === aStr) {
-          return true
-        }
-      })
-      return false
+      if (this.positionalValues.find(value => value === aStr)){
+        return true
+      } else {
+        return false
+      }
     } else {
       return false
     }
@@ -113,12 +112,11 @@ export class Value {
    */
   isInAsSubStr(aStr){
     if (this.hasPositinalValues()){
-      this.positionalValues.forEach(value => {
-        if (value.includes(aStr)) {
-          return true
-        }
-      })
-      return false
+      if (this.positionalValues.find(value => value.includes(aStr))){
+        return true
+      } else {
+        return false
+      }
     } else {
       return false
     }
