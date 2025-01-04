@@ -1,6 +1,6 @@
 {
   "name": "enclst-core-js",
-  "version": "2.6.3",
+  "version": "2.7.0",
   "description": "enclst core library for javascript",
   "main": "src/index.js",
   "files": [
