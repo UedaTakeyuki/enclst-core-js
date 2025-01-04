@@ -79,7 +79,51 @@ export class Value {
       return ""
     }
   }
-  
+
+  /**
+   * last positional value or ""
+   */
+  last(){
+    if (this.hasPositinalValues()){
+      const length = this.positionalValues.length
+      return this.positionalValues[length -1]
+    } else {
+      return ""
+    }
+  }
+
+  /**
+   * Is a string in this positional value?
+   */
+  isIn(aStr){
+    if (this.hasPositinalValues()){
+      this.positionalValues.forEach(value => {
+        if (value === aStr) {
+          return true
+        }
+      })
+      return false
+    } else {
+      return false
+    }
+  }
+
+  /**
+   * Is a sring in this positional value as substring?
+   */
+  isInAsSubStr(aStr){
+    if (this.hasPositinalValues()){
+      this.positionalValues.forEach(value => {
+        if (value.includes(aStr)) {
+          return true
+        }
+      })
+      return false
+    } else {
+      return false
+    }
+  }
+
   /**
    * read value string if not ""
    */
