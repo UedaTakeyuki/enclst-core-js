@@ -71,6 +71,7 @@ export class Value {
 
   /**
    * first positional value or ""
+   * @returns {string} the first value in the positional values.
    */
   first(){
     if (this.hasPositinalValues()){
@@ -82,6 +83,7 @@ export class Value {
 
   /**
    * last positional value or ""
+   * @returns {string} the last value in the positional values.
    */
   last(){
     if (this.hasPositinalValues()){
@@ -93,7 +95,9 @@ export class Value {
   }
 
   /**
-   * Is a string in this positional value?
+   * Is a string included in this positional value?
+   * @param {string} aStr string to compare.
+   * @returns {bool} true if it is included in the positional values.
    */
   isIn(aStr){
     if (this.hasPositinalValues()){
@@ -108,7 +112,9 @@ export class Value {
   }
 
   /**
-   * Is a sring in this positional value as substring?
+   * Is a sring included in this positional value as a substring?
+   * @param {string} aStr string to compare.
+   * @returns {bool} true if it is included in the positional values as substring.
    */
   isInAsSubStr(aStr){
     if (this.hasPositinalValues()){
@@ -124,6 +130,7 @@ export class Value {
 
   /**
    * read value string if not ""
+   * @param {string} valueStr string to read.
    */
   readStr(valueStr){
     if ("" != valueStr) {
@@ -146,7 +153,7 @@ export class Value {
 
   /**
    * serialize to string
-   * @returns {string} string serialization
+   * @returns {string} string serialization of this Value.
    */
   serialize(){
     //return this.originalStr_
